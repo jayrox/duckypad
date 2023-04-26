@@ -1,0 +1,2 @@
+DEFAULTCHARDELAY 15
+STRING -M spider_plus 

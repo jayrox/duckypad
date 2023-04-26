@@ -1,0 +1,2 @@
+DEFAULTCHARDELAY 15
+STRING nmap -F -vvv -T4 -A -Pn --max-scan-delay 100ms 

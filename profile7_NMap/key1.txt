@@ -1,0 +1,2 @@
+DEFAULTCHARDELAY 15
+STRING nmap -sV -vvv -T4 -A -p- -Pn 

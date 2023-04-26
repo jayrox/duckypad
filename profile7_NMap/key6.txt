@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+STRING nmap -sV -vvv -T4 -A -p- -Pn --script vulners 
+CTRL SHIFT v
+ENTER

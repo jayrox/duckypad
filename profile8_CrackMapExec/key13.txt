@@ -1,0 +1,6 @@
+DEFAULTCHARDELAY 15
+STRING sed -Ei 's/(lpsvcs.com\\e([0-9]+):)([0-9a-z!@#$%^&*()]+)/\1[REDACTED]/gip' cme.txt
+ENTER
+
+STRING sed -Ei 's/(lpsvcs.com\\e([0-9]+):)([0-9a-z!@#$%^&*()]+)/\1[REDACTED]/gip' cme_error.txt
+ENTER
