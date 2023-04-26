@@ -1,0 +1,7 @@
+STRINGLN [System.Net.WebRequest]::defaultwebproxy = New-Object system.net.webproxy($proxy)
+
+STRINGLN [System.Net.WebRequest]::defaultwebproxy.credentials = [System.Net.WebRequest]::DefaultNetworkCredentials
+
+STRINGLN [System.Net.WebRequest]::defaultwebproxy.BypassProxyOnLocal = $true
+
+ENTER
