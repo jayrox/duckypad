@@ -1,0 +1,3 @@
+z1 FuzzSub
+z2 Size
+BG_COLOR 84 22 180

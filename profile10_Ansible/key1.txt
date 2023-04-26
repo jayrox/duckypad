@@ -1,0 +1,1 @@
+STRING ansible-playbook launch.yml --private-key ~/PenTest/RedTeam/ssh.pem -i ./hosts

@@ -1,0 +1,2 @@
+z1 BasicSS
+BG_COLOR 84 22 180

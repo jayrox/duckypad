@@ -1,0 +1,2 @@
+STRING sudo nano /etc/hosts
+ENTER
