@@ -5,6 +5,9 @@ z4 Protos
 z5 Server
 z6 Vulners
 z7 SMTP
+z8 Headers
+z9 Ciphers
+z10 SCIR
 z15 Help
 BG_COLOR 84 22 180
 SWCOLOR_1 128 0 255

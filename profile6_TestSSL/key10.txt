@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+STRING testssl -R --connect-timeout 5 --openssl-timeout 5 
+CTRL SHIFT v
+ENTER
