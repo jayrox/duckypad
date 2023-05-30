@@ -1,0 +1,1 @@
+STRING ls -la /etc/apparmor.d/

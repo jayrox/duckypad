@@ -1,10 +1,13 @@
 z1 Sudo-l
 z2 FndRoot
 z3 ls -la
+z4 GetCap
+z5 AppArmo
 z7 PyShell
 z10 -------
 z11 -------
 z12 -------
 z13 Hosts
 z14 NC 4444
+z15 Srv80
 BG_COLOR 84 22 180
