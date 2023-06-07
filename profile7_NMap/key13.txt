@@ -1,16 +1,38 @@
-STRING cat nmap_output.gnmap | grep '445/open' | cut -d' ' -f2 > smb_hosts
+DEFAULTCHARDELAY 15
+
+STRING cat 
+CTRL SHIFT v
+STRING  | grep '445/open' | cut -d' ' -f2 > nmap_smb_hosts
 ENTER
-STRING cat nmap_output.gnmap | grep '8080/open' | cut -d' ' -f2 > 8080_hosts
+STRING cat 
+CTRL SHIFT v
+STRING  | grep '8080/open' | cut -d' ' -f2 > nmap_8080_hosts
 ENTER
-STRING cat nmap_output.gnmap | grep '80/open' | cut -d' ' -f2 > 80_hosts
+STRING cat 
+CTRL SHIFT v
+STRING  | grep '80/open' | cut -d' ' -f2 > nmap_80_hosts
 ENTER
-STRING cat nmap_output.gnmap | grep '443/open' | cut -d' ' -f2 > 443_hosts
+STRING cat 
+CTRL SHIFT v
+STRING  | grep '443/open' | cut -d' ' -f2 > nmap_443_hosts
 ENTER
-STRING cat nmap_output.gnmap | grep '8443/open' | cut -d' ' -f2 > 8443_hosts
+STRING cat 
+CTRL SHIFT v
+STRING  | grep '8443/open' | cut -d' ' -f2 > nmap_8443_hosts
 ENTER
-STRING cat nmap_output.gnmap | grep '3389/open' | cut -d' ' -f2 > 3389_rdp_hosts
+STRING cat 
+CTRL SHIFT v
+STRING  | grep '3389/open' | cut -d' ' -f2 > nmap_3389_rdp_hosts
 ENTER
-STRING cat nmap_output.gnmap | grep '5985/open' | cut -d' ' -f2 > 5985_winrw_hosts
+STRING cat 
+CTRL SHIFT v
+STRING  | grep '5985/open' | cut -d' ' -f2 > nmap_5985_winrw_hosts
 ENTER
-STRING cat nmap_output.gnmap | grep '5986/open' | cut -d' ' -f2 > 5986_winrw_hosts
+STRING cat 
+CTRL SHIFT v
+STRING  | grep '5986/open' | cut -d' ' -f2 > nmap_5986_winrw_hosts
+ENTER
+STRING cat 
+CTRL SHIFT v
+STRING  | grep -P '(?>[\d]+)(?<!80|443|445|8080|8443|3389|5985|5986)/open' | cut -d' ' -f2,4 | cut -d'/' -f1-3,5 > nmap_other_ports_hosts
 ENTER

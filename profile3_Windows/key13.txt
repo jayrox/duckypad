@@ -11,5 +11,3 @@ STRING diskmgmt.msc
 
 
 ENTER
-
-
