@@ -1,2 +1,2 @@
 DEFAULTCHARDELAY 15
-STRING testssl -E -R -h --connect-timeout 5 --openssl-timeout 5 
+STRING testssl 

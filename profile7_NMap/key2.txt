@@ -1,4 +1,2 @@
 DEFAULTCHARDELAY 15
-STRING nmap -sV -vvv -T4 -A -p- -Pn 
-CTRL SHIFT v
-ENTER
+STRING nmap -F -vvv -T4 -A -Pn --max-scan-delay 100ms 

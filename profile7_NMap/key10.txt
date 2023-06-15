@@ -1,0 +1,2 @@
+STRING ls -a /usr/share/nmap/scripts
+ENTER
