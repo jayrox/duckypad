@@ -1,0 +1,3 @@
+z1 WFuzz
+z2 ffuf
+BG_COLOR 84 22 180

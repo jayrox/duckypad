@@ -1,0 +1,5 @@
+z1 FuzzSub
+z2 Size
+z14 Home
+BG_COLOR 84 22 180
+SWCOLOR_14 255 128 0

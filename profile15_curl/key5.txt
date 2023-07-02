@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+STRING curl --remote-name 
+CTRL SHIFT v
+ENTER

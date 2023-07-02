@@ -1,2 +1,3 @@
 sleep_after_min 30
-
+bi 4
+kbl English(US)

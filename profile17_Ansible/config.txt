@@ -1,2 +1,0 @@
-z1 Setup
-BG_COLOR 84 22 180

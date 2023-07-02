@@ -1,4 +1,0 @@
-z1 Dir
-z4 Sub DNS
-z5 Size
-BG_COLOR 84 22 180
