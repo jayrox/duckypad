@@ -1,0 +1,5 @@
+STRINGLN # Lookup users by AdminCount=1
+
+STRING ([adsisearcher]"(&(objectClass=person)(samaccountname=*)(AdminCount=1))").FindALL() | ForEach-Object { $_.properties }
+ENTER
+

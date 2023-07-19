@@ -1,3 +1,6 @@
 z1 WFuzz
 z2 ffuf
+z3 OpenSSL
+z4 Bludhnd
+z5 ADSI
 BG_COLOR 84 22 180
