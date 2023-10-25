@@ -1,0 +1,6 @@
+DEFAULTCHARDELAY 15
+
+STRING crackmapexec smb 
+CTRL SHIFT v
+STRING -u anonymous -p "" --rid-brute
+ENTER

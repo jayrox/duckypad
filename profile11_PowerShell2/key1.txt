@@ -1,0 +1,16 @@
+DEFAULTCHARDELAY 15
+
+LOOP0:
+STRING # Please completely fill out the following prompts then press this button again to execute
+ENTER
+
+STRING $ad_domain = Read-Host "Please enter the domain"; $distinguished_name = Read-Host "Please enter the distinguished name"; $password_secure_string = Read-Host "Enter a Password" -AsSecureString
+ENTER
+
+LOOP1:
+STRING $object = [adsi]"LDAP://$ad_domain/$distinguished_name"
+ENTER
+STRING $object.psbase.invoke("SetPassword",$password_secure_string)
+ENTER
+STRING $object.psbase.commitchanges()
+ENTER

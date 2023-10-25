@@ -1,0 +1,48 @@
+OLED_CLEAR
+OLED_CURSOR 10 20
+OLED_PRINT Bonus lightshow!
+OLED_CURSOR 15 35
+OLED_PRINT Anykey to exit
+OLED_UPDATE
+
+BCLR
+
+VAR $red = 0
+VAR $green = 0
+VAR $blue = 0
+
+VAR $count = 0
+
+DEFINE UP 0
+DEFINE DOWN 1
+
+VAR $direction = UP
+WHILE 1
+
+    IF $_READKEY != 0 THEN
+        LBREAK
+    END_IF
+
+    IF $direction == UP && $count == 250 THEN
+        $direction = DOWN
+    ELSE IF $direction == DOWN && $count == 0 THEN
+        $direction = UP
+    END_IF
+
+    $red = $count / 3
+    $green = $count / 2
+    $blue = $count 
+
+    SWC_FILL $red $green $blue
+    DELAY 2
+
+    IF $direction == UP THEN
+        $count = $count + 1
+    ELSE IF $direction == DOWN THEN
+        $count = $count - 1
+    END_IF
+
+END_WHILE
+
+// restore all RGB LED to default colors
+SWC_RESET 99

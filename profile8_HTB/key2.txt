@@ -1,2 +1,4 @@
+DEFAULTCHARDELAY 15
+
 STRING find / -type f -user root -perm -4000 2>/dev/null
 ENTER

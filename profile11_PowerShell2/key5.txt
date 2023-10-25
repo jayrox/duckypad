@@ -1,0 +1,2 @@
+STRING whoami /priv
+ENTER

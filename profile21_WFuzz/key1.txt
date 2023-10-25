@@ -1,0 +1,6 @@
+DEFAULTCHARDELAY 15
+
+STRING wfuzz -H "Host: FUZZ.
+CTRL SHIFT v
+STRING " -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt https://
+CTRL SHIFT v

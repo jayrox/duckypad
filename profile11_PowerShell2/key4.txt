@@ -1,0 +1,18 @@
+DEFAULTCHARDELAY 15
+
+LOOP0:
+STRING # Please completely fill out the following prompts then press this button again to execute
+ENTER
+
+STRING $ad_domain = Read-Host "Please enter the domain"; $computer_name = Read-Host "Please enter the computer name"
+ENTER
+
+LOOP1:
+STRING $searcher = [adsisearcher]::new([adsi]"LDAP://$ad_domain")
+ENTER
+
+STRING $searcher.Filter = "(&(objectCategory=computer)(name=$computer_name))"
+ENTER
+
+STRING $searcher.FindAll().properties.distinguishedname
+ENTER

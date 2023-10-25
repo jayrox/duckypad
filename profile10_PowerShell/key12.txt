@@ -1,0 +1,5 @@
+DEFAULTCHARDELAY 15
+
+STRINGLN (Invoke-WebRequest -uri "http://ifconfig.me/ip").Content
+
+ENTER

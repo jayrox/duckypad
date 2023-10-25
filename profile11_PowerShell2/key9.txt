@@ -1,0 +1,24 @@
+DEFAULTCHARDELAY 15
+
+LOOP0:
+STRING # Please completely fill out the following prompts then press this button again to execute
+ENTER
+
+STRING # This uses the s- notation sid (i.e S-1-5-32-544)
+ENTER
+
+STRING $sid = Read-Host "Please enter the SID use s- notation"
+ENTER
+
+LOOP1:
+STRING $objSID = New-Object System.Security.Principal.SecurityIdentifier("$sid")
+ENTER
+
+STRING $sid_name = $objSID.translate([System.Security.Principal.NTAccount]).Value
+ENTER
+
+STRING Write-Host "SID: $($value)"
+ENTER
+
+STRING Write-Host "Name: $($sid_name)"
+ENTER

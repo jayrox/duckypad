@@ -1,3 +1,0 @@
-STRING ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u 
-CTRL SHIFT v
-STRING /FUZZ -c -v

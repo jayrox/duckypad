@@ -1,0 +1,2 @@
+STRING SELECT name FROM master.dbo.sysdatabases;
+ENTER

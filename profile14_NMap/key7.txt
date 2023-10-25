@@ -1,0 +1,3 @@
+DEFAULTCHARDELAY 15
+
+STRING nmap -p 22 --script=ssh2-enum-algos 

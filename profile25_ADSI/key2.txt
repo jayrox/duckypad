@@ -1,0 +1,13 @@
+DEFAULTCHARDELAY 15
+
+LOOP0:
+STRINGLN # Lookup user by SAM account name
+STRINGLN # Enter the user's SAM account name into the following prompt then press enter.
+STRINGLN # Once the name has been entered press this key again.
+
+STRING $samname = Read-Host -Prompt 'SAM Account Name'
+ENTER
+
+LOOP1:
+STRING ([adsisearcher]"(&(objectClass=person)(objectClass=user)(samaccountname=$($samname)))").FindOne().properties
+ENTER

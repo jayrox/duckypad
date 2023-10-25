@@ -1,0 +1,2 @@
+STRING source venv/bin/activate
+ENTER

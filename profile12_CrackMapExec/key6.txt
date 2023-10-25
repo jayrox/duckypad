@@ -1,2 +1,0 @@
-DEFAULTCHARDELAY 15
-STRING > cme.txt 2> cme_error.txt

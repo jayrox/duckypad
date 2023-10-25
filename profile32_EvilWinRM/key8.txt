@@ -1,0 +1,3 @@
+STRING upload 
+CTRL SHIFT v
+ENTER

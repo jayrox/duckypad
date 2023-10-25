@@ -1,0 +1,13 @@
+DEFAULTCHARDELAY 15
+
+LOOP0:
+STRINGLN # Lookup user by display name
+STRINGLN # Enter the user's display name into the following prompt then press enter.
+STRINGLN # Once the name has been entered press this key again.
+
+STRING $displayname = Read-Host -Prompt 'Display Name'
+ENTER
+
+LOOP1:
+STRING ([adsisearcher]"(&(objectClass=person)(objectClass=user)(displayname=$($displayname)))").FindOne().properties
+ENTER

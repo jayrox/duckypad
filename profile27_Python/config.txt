@@ -1,0 +1,6 @@
+z1 venv+r
+z2 venv+a
+z14 Home
+BG_COLOR 0 255 0
+SWCOLOR_2 0 255 0
+SWCOLOR_14 255 128 0

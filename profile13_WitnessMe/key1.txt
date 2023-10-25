@@ -1,3 +1,0 @@
-DEFAULTCHARDELAY 15
-STRING witnessme screenshot hosts.txt
-ENTER

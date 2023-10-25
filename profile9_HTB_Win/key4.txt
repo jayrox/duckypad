@@ -1,0 +1,13 @@
+DEFAULTCHARDELAY 15
+
+LOOP0:
+STRING upload invoke-certify.ps1
+ENTER
+
+LOOP1:
+STRING import-module ./invoke-certify.ps1
+ENTER
+
+LOOP2:
+STRING invoke-certify find /vunerable
+ENTER

@@ -1,0 +1,30 @@
+DEFAULTCHARDELAY 15
+
+LOOP0:
+STRING # Please completely fill out the following prompts then press this button again to execute
+ENTER
+
+STRING # This uses the objectsid property from ADSI properties
+ENTER
+
+STRING $sid = Read-Host "Please enter the SID from ADSI properties"
+ENTER
+
+LOOP1:
+STRING [byte[]] $byte_sid = $sid -split ' '
+ENTER
+
+STRING $value = (New-Object System.Security.Principal.SecurityIdentifier($byte_sid, 0)).value
+ENTER
+
+STRING $objSID = New-Object System.Security.Principal.SecurityIdentifier("$value")
+ENTER
+
+STRING $sid_name = $objSID.translate([System.Security.Principal.NTAccount]).Value
+ENTER
+
+STRING Write-Host "SID: $($value)"
+ENTER
+
+STRING Write-Host "Name: $($sid_name)"
+ENTER

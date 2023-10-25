@@ -1,0 +1,9 @@
+DEFAULTCHARDELAY 15
+
+LOOP0:
+STRING $epoch_time = Read-Host "Please enter the epoch time to convert"
+ENTER
+
+LOOP1:
+STRING [datetime]::FromFileTime($epoch_time)
+ENTER

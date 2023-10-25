@@ -1,0 +1,3 @@
+STRING download 
+CTRL SHIFT v
+ENTER
