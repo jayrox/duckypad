@@ -1,0 +1,14 @@
+DEFAULTCHARDELAY 15
+
+STRING echo "#### DuckyPad Aliases ###" >> ~/.zshrc
+
+ENTER
+
+STRING echo "alias ptun='printf \"Username: \"; read AD_USERNAME; '" >> ~/.zshrc
+
+ENTER
+
+STRING echo "alias ptdm='printf \"Domain: \"; read AD_DOMAIN; '" >> ~/.zshrc
+
+ENTER
+

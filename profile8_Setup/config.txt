@@ -1,0 +1,3 @@
+z1 Bash
+z2 ZSH
+BG_COLOR 84 22 180

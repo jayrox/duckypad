@@ -1,0 +1,17 @@
+// Set to background
+CTRL Z
+
+// Magic
+DELAY 1000
+STRING stty raw -echo
+ENTER
+
+// Reset term
+DELAY 1000
+STRING reset
+ENTER
+
+// Bring back to foreground
+DELAY 200
+STRING fg
+ENTER

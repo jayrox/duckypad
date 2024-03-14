@@ -1,6 +1,0 @@
-DEFAULTCHARDELAY 15
-
-STRING gobuster dir -u 
-CTRL SHIFT v
-STRING  -t 50 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
-ENTER

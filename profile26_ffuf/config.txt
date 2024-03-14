@@ -1,0 +1,6 @@
+z1 Dir
+z4 Sub DNS
+z5 Size
+z14 Home
+BG_COLOR 128 255 0
+SWCOLOR_14 255 128 0

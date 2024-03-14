@@ -1,0 +1,3 @@
+DEFAULTCHARDELAY 15
+
+STRING --dbms <mysql|mssql|etc> 

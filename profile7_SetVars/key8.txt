@@ -1,0 +1,2 @@
+STRING stty -echo; printf "Password: "; read AD_PASSWORD; stty echo; printf "\n";
+ENTER

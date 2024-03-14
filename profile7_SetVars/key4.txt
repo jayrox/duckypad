@@ -1,0 +1,2 @@
+STRING printf "AD Domain: "; read AD_DOMAIN; printf "\n";
+ENTER

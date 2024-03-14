@@ -1,0 +1,2 @@
+STRING printf "Host(s): "; read DP_HOSTS; printf "\n";
+ENTER

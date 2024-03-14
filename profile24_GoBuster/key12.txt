@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+// Ignore invalid certs
+STRING -k 

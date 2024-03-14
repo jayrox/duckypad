@@ -1,0 +1,10 @@
+z1 Host(s)
+z2 Port(s)
+z4 Domain
+z7 User
+z8 Pass
+z13 ECHO
+z14 Home
+BG_COLOR 84 22 180
+SWCOLOR_13 128 255 0
+SWCOLOR_14 255 128 0

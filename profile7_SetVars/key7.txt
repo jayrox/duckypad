@@ -1,0 +1,2 @@
+STRING printf "AD Username: "; read AD_USERNAME; printf "\n"; 
+ENTER

@@ -1,0 +1,5 @@
+DEFAULTCHARDELAY 15
+
+STRING nxc smb 
+CTRL SHIFT v
+STRING  -u '' -p '' -M zerologon

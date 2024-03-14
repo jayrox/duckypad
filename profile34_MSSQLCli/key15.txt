@@ -1,0 +1,2 @@
+STRING impacket-mssqlclient
+ENTER

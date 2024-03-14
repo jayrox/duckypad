@@ -1,2 +1,0 @@
-STRING smbclient -L //
-CTRL SHIFT v

@@ -1,0 +1,6 @@
+DEFAULTCHARDELAY 15
+
+STRING find / -type f -name "
+CTRL SHIFT v
+STRING " 2>/dev/null
+ENTER

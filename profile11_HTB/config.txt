@@ -1,0 +1,19 @@
+z1 Sudo-l
+z2 FndRoot
+z3 ls -la
+z4 GetCap
+z5 AppArmo
+z6 PyShell
+z7 -------
+z8 Upgrade
+z9 -------
+z10 Hosts
+z11 NC 4444
+z12 Srv80
+z13 Windows
+z14 Home
+z15 DelRout
+BG_COLOR 84 22 180
+SWCOLOR_13 128 255 255
+SWCOLOR_14 255 128 0
+SWCOLOR_15 255 0 0
