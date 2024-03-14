@@ -4,8 +4,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 1: -
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Help | $\color{#00ffff}\textsf{\kern{0.2cm}\normalsize Windows}$ | $\color{#80ff00}\textsf{\kern{0.2cm}\normalsize NumPad}$ |
 | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize Squiddy}$ | Ansible | $\color{#00ff00}\textsf{\kern{0.2cm}\normalsize HTB}$ |
 | $\color{#80ffff}\textsf{\kern{0.2cm}\normalsize PS}$ | $\color{#c993ff}\textsf{\kern{0.2cm}\normalsize TestSSL}$ | $\color{#0f0fff}\textsf{\kern{0.2cm}\normalsize NMap}$ |
@@ -15,8 +15,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 2: -
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | $\color{#ff0080}\textsf{\kern{0.2cm}\normalsize WFuzz}$ | $\color{#0080c0}\textsf{\kern{0.2cm}\normalsize ffuf}$ | $\color{#46c2ff}\textsf{\kern{0.2cm}\normalsize OpenSSL}$ |
 | $\color{#ff8484}\textsf{\kern{0.2cm}\normalsize Bludhnd}$ | ADSI | $\color{#ee82ee}\textsf{\kern{0.2cm}\normalsize OneLine}$ |
 | $\color{#00ff00}\textsf{\kern{0.2cm}\normalsize Python}$ | $\color{#00ffff}\textsf{\kern{0.2cm}\normalsize Dig}$ | $\color{#ff8000}\textsf{\kern{0.2cm}\normalsize SMBCli}$ |
@@ -26,8 +26,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 3: -
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | NetExec | - | - |
 | - | - | - |
 | - | - | - |
@@ -37,8 +37,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 4: Help
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Explain | - | - |
 | tldr | - | - |
 | $\color{#8000ff}\textsf{\kern{0.2cm}\normalsize Kali}$ | - | - |
@@ -48,8 +48,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 5: Windows
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | $\color{#a000ff}\textsf{\kern{0.2cm}\normalsize vol-}$ | $\color{#a000ff}\textsf{\kern{0.2cm}\normalsize mute}$ | $\color{#a000ff}\textsf{\kern{0.2cm}\normalsize vol+}$ |
 | $\color{#a000ff}\textsf{\kern{0.2cm}\normalsize <<}$ | $\color{#a000ff}\textsf{\kern{0.2cm}\normalsize \|\|}$ | $\color{#a000ff}\textsf{\kern{0.2cm}\normalsize >>}$ |
 | intro | hide | dev |
@@ -59,8 +59,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 6: NumPad
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | $\color{#00ffff}\textsf{\kern{0.2cm}\normalsize x}$ | $\color{#00ffff}\textsf{\kern{0.2cm}\normalsize -}$ | $\color{#00ffff}\textsf{\kern{0.2cm}\normalsize +}$ |
 | 7 | 8 | 9 |
 | 4 | 5 | 6 |
@@ -70,8 +70,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 7: SetVars
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Host(s) | Port(s) | - |
 | Domain | - | - |
 | User | Pass | - |
@@ -81,8 +81,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 8: Setup
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Bash | ZSH | - |
 | - | - | - |
 | - | - | - |
@@ -92,8 +92,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 9: Squiddy
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Squiddy | - | - |
 | - | - | - |
 | - | - | - |
@@ -103,8 +103,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 10: Ansible
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Setup | - | - |
 | - | - | - |
 | - | - | - |
@@ -114,8 +114,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 11: HTB
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Sudo-l | FndRoot | ls -la |
 | GetCap | AppArmo | PyShell |
 | ------- | Upgrade | ------- |
@@ -125,8 +125,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 12: Win
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Whoami | - | - |
 | $\color{#80ffff}\textsf{\kern{0.2cm}\normalsize Certify}$ | - | - |
 | Dir A | Set | - |
@@ -136,8 +136,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 13: PowerShell
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | $\color{#81e8fe}\textsf{\kern{0.2cm}\normalsize TLS12}$ | $\color{#00ff00}\textsf{\kern{0.2cm}\normalsize Proxy}$ | $\color{#ff8040}\textsf{\kern{0.2cm}\normalsize PSv2}$ |
 | $\color{#a000ff}\textsf{\kern{0.2cm}\normalsize AMSI-S}$ | $\color{#0000ff}\textsf{\kern{0.2cm}\normalsize AMSI-PS}$ | AMSI3 |
 | PwrCat | $\color{#9cced3}\textsf{\kern{0.2cm}\normalsize Daren}$ | $\color{#ff0000}\textsf{\kern{0.2cm}\normalsize NoAV}$ |
@@ -147,8 +147,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 14: PowerShell2
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize ChgRCPW}$ | MpPref | $\color{#ff0080}\textsf{\kern{0.2cm}\normalsize CvtTime}$ |
 | GetC\_DN | Priv | Obj SID |
 | GetU\_Pr | - | S- SID |
@@ -158,8 +158,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 15: PowerShell3
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | IEX | - | - |
 | DL | - | - |
 | - | - | - |
@@ -169,8 +169,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 16: TestSSL
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Full | Short | - |
 | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize Full+v}$ | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize Short+v}$ | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize Protos}$ |
 | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize SMTP}$ | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize Server}$ | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize Vulners}$ |
@@ -180,8 +180,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 17: NMap
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Full | Fast | $\color{#ff00ff}\textsf{\kern{0.2cm}\normalsize Mods}$ |
 | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize Full+v}$ | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize Fast+v}$ | - |
 | $\color{#008000}\textsf{\kern{0.2cm}\normalsize SSH22}$ | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize SSH22+v}$ | - |
@@ -191,8 +191,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 18: CrackMapExec
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Simple | - | $\color{#00ff00}\textsf{\kern{0.2cm}\normalsize Verify}$ |
 | $\color{#03effc}\textsf{\kern{0.2cm}\normalsize AuthSMB}$ | $\color{#ff8000}\textsf{\kern{0.2cm}\normalsize Spider}$ | $\color{#80ffff}\textsf{\kern{0.2cm}\normalsize FileOut}$ |
 | $\color{#03effc}\textsf{\kern{0.2cm}\normalsize AuthWRM}$ | LDAP | - |
@@ -202,8 +202,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 19: NetExec
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | ZeroLog | PetitPo | - |
 | - | - | - |
 | - | - | - |
@@ -213,8 +213,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 20: WitnessMe
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | BasicSS | - | - |
 | - | - | - |
 | - | - | - |
@@ -224,8 +224,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 21: Skipfish
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Basic | $\color{#00ffff}\textsf{\kern{0.2cm}\normalsize Basic+v}$ | - |
 | - | - | - |
 | - | - | - |
@@ -235,8 +235,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 22: curl
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | ikL | dl\_file | - |
 | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize ikL+v}$ | dl\_file | - |
 | - | - | - |
@@ -246,8 +246,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 23: Nikto
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Basic | - | - |
 | 80,443 | - | - |
 | - | - | - |
@@ -257,8 +257,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 24: GoBuster
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Dir | - | $\color{#ee82ee}\textsf{\kern{0.2cm}\normalsize ExLen}$ |
 | - | - | Follow |
 | - | - | Output |
@@ -268,8 +268,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 25: WFuzz
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | FuzzSub | Size | - |
 | - | - | - |
 | - | - | - |
@@ -279,8 +279,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 26: ffuf
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Dir | - | - |
 | Sub DNS | Size | - |
 | - | - | - |
@@ -290,8 +290,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 27: OpenSSL
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | SCIR | - | - |
 | - | - | - |
 | - | - | - |
@@ -301,8 +301,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 28: Bloodhound
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Neo4j | Start | - |
 | PyBlood | - | - |
 | - | - | - |
@@ -312,8 +312,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 29: ADSI
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Display | SAM | Title |
 | Admin | - | - |
 | - | - | - |
@@ -323,8 +323,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 30: OneLiners
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | $\color{#00ff00}\textsf{\kern{0.2cm}\normalsize CU Enc}$ | $\color{#ee82ee}\textsf{\kern{0.2cm}\normalsize CU Dec}$ | $\color{#ff00ff}\textsf{\kern{0.2cm}\normalsize CU Hash}$ |
 | $\color{#00ffff}\textsf{\kern{0.2cm}\normalsize Whois}$ | $\color{#13cbec}\textsf{\kern{0.2cm}\normalsize FndFile}$ | - |
 | - | - | - |
@@ -334,8 +334,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 31: Python
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | venv+r | $\color{#00ff00}\textsf{\kern{0.2cm}\normalsize venv+a}$ | - |
 | - | - | - |
 | - | - | - |
@@ -345,8 +345,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 32: Dig
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | dig | - | Types |
 | - | - | - |
 | - | - | - |
@@ -356,8 +356,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 33: SMBClient
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Connect | - | $\color{#80ffff}\textsf{\kern{0.2cm}\normalsize NoPW}$ |
 | $\color{#0ff06f}\textsf{\kern{0.2cm}\normalsize LS}$ | - | - |
 | - | - | $\color{#ee82ee}\textsf{\kern{0.2cm}\normalsize Get All}$ |
@@ -367,8 +367,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 34: MSSQLCli
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | $\color{#00ff00}\textsf{\kern{0.2cm}\normalsize Connect}$ | - | ConVars |
 | $\color{#0423fb}\textsf{\kern{0.2cm}\normalsize Roles}$ | - | $\color{#ff8040}\textsf{\kern{0.2cm}\normalsize Info}$ |
 | $\color{#f10edb}\textsf{\kern{0.2cm}\normalsize Linked}$ | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize QLinked}$ | Tables |
@@ -378,8 +378,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 35: Responder
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Start | - | - |
 | - | - | - |
 | - | - | - |
@@ -389,8 +389,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 36: EvilWinRM
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | $\color{#80ff00}\textsf{\kern{0.2cm}\normalsize Connect}$ | - | $\color{#80ffff}\textsf{\kern{0.2cm}\normalsize Menu}$ |
 | - | - | - |
 | $\color{#0080ff}\textsf{\kern{0.2cm}\normalsize DL}$ | $\color{#ff0080}\textsf{\kern{0.2cm}\normalsize UL}$ | - |
@@ -400,8 +400,8 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 37: SMBMAP
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Base | - | - |
 | Recurse | Grep | Find |
 | - | - | - |
@@ -411,13 +411,12 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 # Profile 38: SQLMap
 
-|   |   |   |
-| :---: | :---: | :---: |
+|       |       |       |
+| :----------: | :----------: | :----------: |
 | Base | Host | dbms |
 | Data | DBs | Tables |
 | DB | Table | - |
 | Dump | - | - |
 | - | $\color{#ff8000}\textsf{\kern{0.2cm}\normalsize Home}$ | $\color{#ffff00}\textsf{\kern{0.2cm}\normalsize Help}$ |
-
 
 
