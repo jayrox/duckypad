@@ -4,11 +4,12 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 the following previews were generated using this script: https://github.com/jayrox/duckypad_profile_preview_gen
 
+
 # Profile 1: -
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
-| &nbsp;Help&nbsp; | $${\textsf{\color{#00ffff} Windows }}$$ | $${\textsf{\color{#80ff00} NumPad }}$$ |
+| $${\textsf{\color{#00ffff} Windows }}$$ | $${\textsf{\color{#80ff00} NumPad }}$$ | &nbsp;Help&nbsp; |
 | $${\textsf{\color{#0080ff} Squiddy }}$$ | Ansible | $${\textsf{\color{#00ff00} &nbsp;&nbsp;HTB&nbsp;&nbsp; }}$$ |
 | $${\textsf{\color{#80ffff} &nbsp;&nbsp;PS&nbsp;&nbsp; }}$$ | $${\textsf{\color{#c993ff} TestSSL }}$$ | $${\textsf{\color{#0f0fff} &nbsp;NMap&nbsp; }}$$ |
 | $${\textsf{\color{#ffff00} &nbsp;&nbsp;CME&nbsp;&nbsp; }}$$ | $${\textsf{\color{#ffff00} Witness }}$$ | $${\textsf{\color{#ff0d86} Skpfish }}$$ |
@@ -37,18 +38,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 4: Help
-
-|       |       |       |
-| :----------: | :----------: | :----------: |
-| Explain | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;tldr&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| $${\textsf{\color{#8000ff} &nbsp;Kali&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-
-
-# Profile 5: Windows
+# Profile 4: Windows
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -59,7 +49,7 @@ the following previews were generated using this script: https://github.com/jayr
 | diskMgr | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | taskViw |
 
 
-# Profile 6: NumPad
+# Profile 5: NumPad
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -70,7 +60,29 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#00ffff} &nbsp;enter&nbsp; }}$$ |
 
 
-# Profile 7: SetVars
+# Profile 6: Help
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| Explain | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;tldr&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#8000ff} &nbsp;Kali&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+
+
+# Profile 7: Setup
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| &nbsp;Bash&nbsp; | &nbsp;&nbsp;ZSH&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Help&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+
+
+# Profile 8: SetVars
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -81,18 +93,18 @@ the following previews were generated using this script: https://github.com/jayr
 | $${\textsf{\color{#80ff00} &nbsp;ECHO&nbsp; }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 8: Setup
+# Profile 9: OneLiners
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
-| &nbsp;Bash&nbsp; | &nbsp;&nbsp;ZSH&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#00ff00} CU Enc }}$$ | $${\textsf{\color{#ee82ee} CU Dec }}$$ | $${\textsf{\color{#ff00ff} CU Hash }}$$ |
+| $${\textsf{\color{#00ffff} &nbsp;Whois&nbsp; }}$$ | $${\textsf{\color{#13cbec} FndFile }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;test&nbsp; | &nbsp;test2&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 9: Squiddy
+# Profile 10: Squiddy
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -103,7 +115,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 10: Ansible
+# Profile 11: Ansible
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -114,7 +126,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 11: HTB
+# Profile 12: HTB
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -125,7 +137,7 @@ the following previews were generated using this script: https://github.com/jayr
 | $${\textsf{\color{#80ffff} Windows }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ff0000} DelRout }}$$ |
 
 
-# Profile 12: Win
+# Profile 13: Win
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -136,7 +148,7 @@ the following previews were generated using this script: https://github.com/jayr
 | $${\textsf{\color{#80ffff} &nbsp;Linux&nbsp; }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 13: PowerShell
+# Profile 14: PowerShell
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -147,7 +159,7 @@ the following previews were generated using this script: https://github.com/jayr
 | $${\textsf{\color{#80ffff} Page 2 }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 14: PowerShell2
+# Profile 15: PowerShell2
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -158,7 +170,7 @@ the following previews were generated using this script: https://github.com/jayr
 | $${\textsf{\color{#80ffff} Page 1 }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#80ffff} Page 3 }}$$ |
 
 
-# Profile 15: PowerShell3
+# Profile 16: PowerShell3
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -169,7 +181,7 @@ the following previews were generated using this script: https://github.com/jayr
 | $${\textsf{\color{#80ffff} Page 1 }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#80ffff} Page 2 }}$$ |
 
 
-# Profile 16: TestSSL
+# Profile 17: TestSSL
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -180,7 +192,7 @@ the following previews were generated using this script: https://github.com/jayr
 | $${\textsf{\color{#ff80ff} Color3 }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 17: NMap
+# Profile 18: NMap
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -191,7 +203,7 @@ the following previews were generated using this script: https://github.com/jayr
 | $${\textsf{\color{#80ff80} &nbsp;Grep&nbsp; }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 18: CrackMapExec
+# Profile 19: CrackMapExec
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -202,7 +214,7 @@ the following previews were generated using this script: https://github.com/jayr
 | $${\textsf{\color{#ff0000} Redact }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 19: NetExec
+# Profile 20: NetExec
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -213,7 +225,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 20: WitnessMe
+# Profile 21: WitnessMe
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -224,7 +236,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 21: Skipfish
+# Profile 22: Skipfish
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -235,7 +247,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 22: curl
+# Profile 23: curl
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -246,7 +258,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 23: Nikto
+# Profile 24: Nikto
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -257,7 +269,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 24: GoBuster
+# Profile 25: GoBuster
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -268,7 +280,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 25: WFuzz
+# Profile 26: WFuzz
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -279,7 +291,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 26: ffuf
+# Profile 27: ffuf
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -290,7 +302,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 27: OpenSSL
+# Profile 28: OpenSSL
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -301,7 +313,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 28: Bloodhound
+# Profile 29: Bloodhound
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -312,7 +324,7 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 29: ADSI
+# Profile 30: ADSI
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -320,17 +332,6 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;Admin&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-
-
-# Profile 30: OneLiners
-
-|       |       |       |
-| :----------: | :----------: | :----------: |
-| $${\textsf{\color{#00ff00} CU Enc }}$$ | $${\textsf{\color{#ee82ee} CU Dec }}$$ | $${\textsf{\color{#ff00ff} CU Hash }}$$ |
-| $${\textsf{\color{#00ffff} &nbsp;Whois&nbsp; }}$$ | $${\textsf{\color{#13cbec} FndFile }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;test&nbsp; | &nbsp;test2&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
@@ -420,5 +421,3 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;DB&nbsp;&nbsp; | &nbsp;Table&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;Dump&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
-
-
