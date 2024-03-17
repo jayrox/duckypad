@@ -1,3 +1,7 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Enable TLS 1.2
+
 STRINGLN [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 ENTER

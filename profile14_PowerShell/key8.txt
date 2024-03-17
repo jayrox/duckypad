@@ -1,5 +1,7 @@
 DEFAULTCHARDELAY 15
 
+REM DOC: Some PowerShell functions from Daren
+
 STRINGLN function Invoke-ImpersonateUser {
 STRINGLN     Param(
 STRINGLN         [PSCredential]$Credential,

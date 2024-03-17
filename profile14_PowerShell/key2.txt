@@ -1,5 +1,7 @@
 DEFAULTCHARDELAY 15
 
+REM DOC: Setup PowerShell to use the corporate proxy authenticated
+
 STRINGLN [System.Net.WebRequest]::defaultwebproxy = New-Object system.net.webproxy($proxy)
 
 STRINGLN [System.Net.WebRequest]::defaultwebproxy.credentials = [System.Net.WebRequest]::DefaultNetworkCredentials

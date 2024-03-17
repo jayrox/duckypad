@@ -1,13 +1,5 @@
 DEFAULTCHARDELAY 15
 
-STRING echo "#### DuckyPad Aliases ###" >> ~/.bashrc
-
-ENTER
-
 STRING echo "alias ptun='printf \"Username: \"; read AD_USERNAME; '" >> ~/.bashrc
 
-ENTER
-
 STRING echo "alias ptdm='printf \"Domain: \"; read AD_DOMAIN; '" >> ~/.bashrc
-
-ENTER

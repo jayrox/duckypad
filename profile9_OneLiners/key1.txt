@@ -1,0 +1,3 @@
+REM DOC: Uses certurl to base64 encode a file
+
+STRING certutil -encode <in> <out>

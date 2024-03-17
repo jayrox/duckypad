@@ -1,3 +1,8 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Launch Squiddy
+
 WINDOWS r
+
 STRING cmd /c cd \eli\dev\BK_Tools\Squiddy && cls && python gui.py
 ENTER

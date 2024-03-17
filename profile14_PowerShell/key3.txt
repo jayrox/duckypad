@@ -1,4 +1,6 @@
 WINDOWS r
+
 DELAY 600
+
 STRING PowerShell.exe -Version 2
 ENTER
