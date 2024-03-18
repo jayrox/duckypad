@@ -4,8 +4,11 @@ i am a pentester and these are my profiles. i use them constantly and am constan
 
 the following previews were generated using this script: https://github.com/jayrox/duckypad_profile_preview_gen
 
+i am starting to add some documentation to the keys using a comment format of `REM DOC: ` in the individual keys that will be parsed out by the generator code.
+
 
 # Profile 1: -
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -18,6 +21,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 2: -
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | $${\textsf{\color{#ff0080} &nbsp;WFuzz&nbsp; }}$$ | $${\textsf{\color{#0080c0} &nbsp;ffuf&nbsp; }}$$ | $${\textsf{\color{#46c2ff} OpenSSL }}$$ |
@@ -28,6 +32,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 3: -
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -40,6 +45,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 4: Windows
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | $${\textsf{\color{#a000ff} &nbsp;vol-&nbsp; }}$$ | $${\textsf{\color{#a000ff} &nbsp;mute&nbsp; }}$$ | $${\textsf{\color{#a000ff} &nbsp;vol+&nbsp; }}$$ |
@@ -50,6 +56,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 5: NumPad
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -62,6 +69,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 6: Help
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | Explain | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -72,6 +80,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 7: Setup
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -84,6 +93,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 8: SetVars
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | Host(s) | Port(s) | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -94,6 +104,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 9: OneLiners
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -106,6 +117,10 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 10: Squiddy
 
+Key descriptions:
+* Squiddy: Launch Squiddy
+
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | Squiddy | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -116,6 +131,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 11: Ansible
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -128,6 +144,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 12: HTB
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | Sudo-l | FndRoot | ls -la |
@@ -138,6 +155,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 13: Win
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -150,6 +168,12 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 14: PowerShell
 
+Key descriptions:
+* TLS12: Enable TLS 1.2
+* Proxy: Setup PowerShell to use the corporate proxy authenticated
+* Daren: Some PowerShell functions from Daren
+
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | $${\textsf{\color{#81e8fe} &nbsp;TLS12&nbsp; }}$$ | $${\textsf{\color{#00ff00} &nbsp;Proxy&nbsp; }}$$ | $${\textsf{\color{#ff8040} &nbsp;PSv2&nbsp; }}$$ |
@@ -160,6 +184,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 15: PowerShell2
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -172,6 +197,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 16: PowerShell3
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | &nbsp;&nbsp;IEX&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -182,6 +208,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 17: TestSSL
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -194,6 +221,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 18: NMap
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | &nbsp;Full&nbsp; | &nbsp;Fast&nbsp; | $${\textsf{\color{#ff00ff} &nbsp;Mods&nbsp; }}$$ |
@@ -204,6 +232,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 19: CrackMapExec
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -216,6 +245,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 20: NetExec
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | ZeroLog | PetitPo | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -226,6 +256,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 21: WitnessMe
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -238,6 +269,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 22: Skipfish
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | &nbsp;Basic&nbsp; | $${\textsf{\color{#00ffff} Basic+v }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -248,6 +280,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 23: curl
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -260,6 +293,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 24: Nikto
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | &nbsp;Basic&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -270,6 +304,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 25: GoBuster
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -282,6 +317,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 26: WFuzz
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | FuzzSub | &nbsp;Size&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -292,6 +328,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 27: ffuf
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -304,6 +341,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 28: OpenSSL
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | &nbsp;SCIR&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -314,6 +352,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 29: Bloodhound
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -326,6 +365,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 30: ADSI
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | Display | &nbsp;&nbsp;SAM&nbsp;&nbsp; | &nbsp;Title&nbsp; |
@@ -336,6 +376,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 31: Python
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -348,6 +389,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 32: Dig
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | &nbsp;&nbsp;dig&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;Types&nbsp; |
@@ -358,6 +400,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 33: SMBClient
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -370,6 +413,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 34: MSSQLCli
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | $${\textsf{\color{#00ff00} Connect }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | ConVars |
@@ -380,6 +424,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 35: Responder
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -392,6 +437,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 36: EvilWinRM
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | $${\textsf{\color{#80ff00} Connect }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#80ffff} &nbsp;Menu&nbsp; }}$$ |
@@ -402,6 +448,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 
 # Profile 37: SMBMAP
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -414,6 +461,7 @@ the following previews were generated using this script: https://github.com/jayr
 
 # Profile 38: SQLMap
 
+
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | &nbsp;Base&nbsp; | &nbsp;Host&nbsp; | &nbsp;dbms&nbsp; |
@@ -421,3 +469,5 @@ the following previews were generated using this script: https://github.com/jayr
 | &nbsp;&nbsp;DB&nbsp;&nbsp; | &nbsp;Table&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;Dump&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+
+
