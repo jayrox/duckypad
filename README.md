@@ -343,8 +343,8 @@ Key descriptions:
 # Profile 24: curl
 
 Key descriptions:
-* ikL: curl include response headers in output, allow insecure connections and follow redirects
-* ikL+v: curl include response headers in output, allow insecure connections and follow redirects. Pastes URL from clipboard
+* ikL: Include response headers in output, allow insecure connections and follow redirects
+* ikL+v: Include response headers in output, allow insecure connections and follow redirects. Pastes URL from clipboard
 
 
 |       |       |       |
