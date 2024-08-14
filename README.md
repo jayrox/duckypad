@@ -7,7 +7,6 @@ the following previews were generated using this script: https://github.com/jayr
 i am starting to add some documentation to the keys using a comment format of `REM DOC: ` in the individual keys that will be parsed out by the generator code.
 
 
-
 # Profile 1: -
 
 Key descriptions:
@@ -153,7 +152,7 @@ Key descriptions:
 # Profile 10: Squiddy
 
 Key descriptions:
-* Squiddy: Launch Squiddy
+* Squiddy: Launch Squiddy, my personal pentest tracking and report generation tool
 
 
 |       |       |       |
@@ -343,6 +342,10 @@ Key descriptions:
 
 # Profile 24: curl
 
+Key descriptions:
+* ikL: curl include response headers in output, allow insecure connections and follow redirects
+* ikL+v: curl include response headers in output, allow insecure connections and follow redirects. Pastes URL from clipboard
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -374,7 +377,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | Follow |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | Output |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | K Cert |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
 # Profile 27: WFuzz
@@ -386,7 +389,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
 # Profile 28: ffuf
@@ -398,7 +401,7 @@ Key descriptions:
 | Sub DNS | &nbsp;Size&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
 # Profile 29: OpenSSL
@@ -518,7 +521,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | $${\textsf{\color{#0080ff} &nbsp;&nbsp;DL&nbsp;&nbsp; }}$$ | $${\textsf{\color{#ff0080} &nbsp;&nbsp;UL&nbsp;&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
 # Profile 38: SMBMAP
@@ -581,7 +584,7 @@ Key descriptions:
 
 Key descriptions:
 * Detect: Use hashcat to detect hashing algorithm
-* Crack: Use hashcat to detect hashing algorithm
+* Crack: Use hashcat to crack hashes in file
 * Show: Show cracked password from hashcat
 
 
