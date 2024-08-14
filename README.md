@@ -9,6 +9,21 @@ i am starting to add some documentation to the keys using a comment format of `R
 
 # Profile 1: -
 
+Key descriptions:
+* Windows: Windows based commands
+* NumPad: NumPad
+* Help: Helpful websites
+* HTB: Hacktheboxisms
+* PS: PowerShell
+* TestSSL: Testssl
+* NMap: nmap
+* CME: CrackMapExec
+* Witness: Witness Me
+* Skpfish: SkipFish
+* curl: cURL
+* Nikto: Nikto
+* GoBustr: GoBuster
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -36,8 +51,8 @@ i am starting to add some documentation to the keys using a comment format of `R
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
-| NetExec | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| NetExec | $${\textsf{\color{#00ff40} &nbsp;&nbsp;GAU&nbsp;&nbsp; }}$$ | $${\textsf{\color{#ff8040} &nbsp;MySQL&nbsp; }}$$ |
+| $${\textsf{\color{#00ff00} Hashcat }}$$ | &nbsp;&nbsp;VS&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -69,17 +84,28 @@ i am starting to add some documentation to the keys using a comment format of `R
 
 # Profile 6: Help
 
+Key descriptions:
+* WADComs: Launches Firefox to https://wadcoms.github.io/
+* LOLBAS: Launches Firefox to https://lolbas-project.github.io/
+* GTFOBin: Launches Firefox to https://gtfobins.github.io/
+* Payload: Launches Firefox to https://github.com/swisskyrepo/PayloadsAllTheThings
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
-| Explain | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;tldr&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| Explain | WADComs | LOLBAS |
+| &nbsp;tldr&nbsp; | GTFOBin | Payload |
 | $${\textsf{\color{#8000ff} &nbsp;Kali&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
 # Profile 7: Setup
+
+Key descriptions:
+* Bash: Adds a few aliases to the .bashrc file to help set env variables that can be used in other profiles
+* ZSH: Adds a few aliases to the .zshrc file to help set env variables that can be used in other profiles
+* SetVars: Go to the SetVars profile.
 
 
 |       |       |       |
@@ -88,16 +114,19 @@ i am starting to add some documentation to the keys using a comment format of `R
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Help&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Help&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
 # Profile 8: SetVars
+
+Key descriptions:
+* ECHO: Print out env variables used in the various scripts.
 
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | Host(s) | Port(s) | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| Domain | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| Domain | &nbsp;DC IP&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;User&nbsp; | &nbsp;Pass&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | $${\textsf{\color{#80ff00} &nbsp;ECHO&nbsp; }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -105,11 +134,16 @@ i am starting to add some documentation to the keys using a comment format of `R
 
 # Profile 9: OneLiners
 
+Key descriptions:
+* CU Enc: Uses certurl to base64 encode a file
+* CU Dec: Uses certurl to base64 decode a file
+* CU DL: Uses certurl to download a remote file
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | $${\textsf{\color{#00ff00} CU Enc }}$$ | $${\textsf{\color{#ee82ee} CU Dec }}$$ | $${\textsf{\color{#ff00ff} CU Hash }}$$ |
-| $${\textsf{\color{#00ffff} &nbsp;Whois&nbsp; }}$$ | $${\textsf{\color{#13cbec} FndFile }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#00ffff} &nbsp;Whois&nbsp; }}$$ | $${\textsf{\color{#13cbec} FndFile }}$$ | $${\textsf{\color{#0080ff} &nbsp;CU DL&nbsp; }}$$ |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;test&nbsp; | &nbsp;test2&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -144,17 +178,38 @@ Key descriptions:
 
 # Profile 12: HTB
 
+Key descriptions:
+* Procs: Get running processes
+* Upgrade: Upgrade reverse shell
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | Sudo-l | FndRoot | ls -la |
-| GetCap | AppArmo | PyShell |
+| GetCap | AppArmo | &nbsp;Procs&nbsp; |
 | ------- | Upgrade | ------- |
 | &nbsp;Hosts&nbsp; | NC 4444 | &nbsp;Srv80&nbsp; |
-| $${\textsf{\color{#80ffff} Windows }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ff0000} DelRout }}$$ |
+| $${\textsf{\color{#80ffff} Page 2 }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#80ffff} Windows }}$$ |
 
 
-# Profile 13: Win
+# Profile 13: HTB2
+
+Key descriptions:
+* +Hosts: Creates a prompt for an IP and Host name, then adds them to the /etc/hosts file
+* GetMail: Get Mail folders
+* FixVPN: Updates the HTB VPN to NOT be the default/main connection. Thus fixing the issue where external resources are unable to load.
+
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| $${\textsf{\color{#ee82ee} +Hosts }}$$ | &nbsp;Py2SH&nbsp; | &nbsp;Py3SH&nbsp; |
+| GetMail | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | FixVPN | $${\textsf{\color{#ff0000} DelRout }}$$ |
+| $${\textsf{\color{#80ffff} Page 1 }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#80ffff} Windows }}$$ |
+
+
+# Profile 14: Win
 
 
 |       |       |       |
@@ -166,7 +221,7 @@ Key descriptions:
 | $${\textsf{\color{#80ffff} &nbsp;Linux&nbsp; }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 14: PowerShell
+# Profile 15: PowerShell
 
 Key descriptions:
 * TLS12: Enable TLS 1.2
@@ -183,7 +238,7 @@ Key descriptions:
 | $${\textsf{\color{#80ffff} Page 2 }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 15: PowerShell2
+# Profile 16: PowerShell2
 
 
 |       |       |       |
@@ -195,7 +250,7 @@ Key descriptions:
 | $${\textsf{\color{#80ffff} Page 1 }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#80ffff} Page 3 }}$$ |
 
 
-# Profile 16: PowerShell3
+# Profile 17: PowerShell3
 
 
 |       |       |       |
@@ -207,31 +262,37 @@ Key descriptions:
 | $${\textsf{\color{#80ffff} Page 1 }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#80ffff} Page 2 }}$$ |
 
 
-# Profile 17: TestSSL
+# Profile 18: TestSSL
+
+Key descriptions:
+* Mass+v: Runs TestSSL against hosts in the clipboard. One host per line, saves output as JSON
 
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
-| &nbsp;Full&nbsp; | &nbsp;Short&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;Full&nbsp; | &nbsp;Short&nbsp; | Mass+v |
 | $${\textsf{\color{#0080ff} Full+v }}$$ | $${\textsf{\color{#0080ff} Short+v }}$$ | $${\textsf{\color{#0080ff} Protos }}$$ |
 | $${\textsf{\color{#0080ff} &nbsp;SMTP&nbsp; }}$$ | $${\textsf{\color{#0080ff} Server }}$$ | $${\textsf{\color{#0080ff} Vulners }}$$ |
 | $${\textsf{\color{#0080ff} &nbsp;SCIR&nbsp; }}$$ | $${\textsf{\color{#0080ff} Headers }}$$ | $${\textsf{\color{#0080ff} Ciphers }}$$ |
 | $${\textsf{\color{#ff80ff} Color3 }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 18: NMap
+# Profile 19: NMap
 
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | &nbsp;Full&nbsp; | &nbsp;Fast&nbsp; | $${\textsf{\color{#ff00ff} &nbsp;Mods&nbsp; }}$$ |
-| $${\textsf{\color{#0080ff} Full+v }}$$ | $${\textsf{\color{#0080ff} Fast+v }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#0080ff} Full+v }}$$ | $${\textsf{\color{#0080ff} Fast+v }}$$ | Mass+v |
 | $${\textsf{\color{#008000} &nbsp;SSH22&nbsp; }}$$ | $${\textsf{\color{#0080ff} SSH22+v }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | $${\textsf{\color{#00ff00} Scripts }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;Paste&nbsp; |
 | $${\textsf{\color{#80ff80} &nbsp;Grep&nbsp; }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 19: CrackMapExec
+# Profile 20: CrackMapExec
+
+Key descriptions:
+* SetVars: This profile requires the DP_USERNAME, DP_PASSWORD, DP_DOMAIN, and DP_HOSTS env variables be set. Go to the SetVars profile to set.
 
 
 |       |       |       |
@@ -239,11 +300,11 @@ Key descriptions:
 | Simple | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#00ff00} Verify }}$$ |
 | $${\textsf{\color{#03effc} AuthSMB }}$$ | $${\textsf{\color{#ff8000} Spider }}$$ | $${\textsf{\color{#80ffff} FileOut }}$$ |
 | $${\textsf{\color{#03effc} AuthWRM }}$$ | &nbsp;LDAP&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| RidBrut | $${\textsf{\color{#00ff00} &nbsp;&nbsp;Run&nbsp;&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| $${\textsf{\color{#ff0000} Redact }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+| RidBrut | $${\textsf{\color{#00ff00} &nbsp;&nbsp;Run&nbsp;&nbsp; }}$$ | $${\textsf{\color{#ff0000} Redact }}$$ |
+| $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 20: NetExec
+# Profile 21: NetExec
 
 
 |       |       |       |
@@ -255,7 +316,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 21: WitnessMe
+# Profile 22: WitnessMe
 
 
 |       |       |       |
@@ -267,7 +328,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 22: Skipfish
+# Profile 23: Skipfish
 
 
 |       |       |       |
@@ -279,7 +340,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 23: curl
+# Profile 24: curl
 
 
 |       |       |       |
@@ -291,7 +352,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 24: Nikto
+# Profile 25: Nikto
 
 
 |       |       |       |
@@ -303,7 +364,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 25: GoBuster
+# Profile 26: GoBuster
 
 
 |       |       |       |
@@ -315,7 +376,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 26: WFuzz
+# Profile 27: WFuzz
 
 
 |       |       |       |
@@ -327,7 +388,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 27: ffuf
+# Profile 28: ffuf
 
 
 |       |       |       |
@@ -339,7 +400,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 28: OpenSSL
+# Profile 29: OpenSSL
 
 
 |       |       |       |
@@ -351,7 +412,10 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 29: Bloodhound
+# Profile 30: Bloodhound
+
+Key descriptions:
+* SetVars: This profile requires the DP_USERNAME, DP_PASSWORD, DP_DOMAIN, and DP_DC_IP env variables be set. Go to the SetVars profile to set.
 
 
 |       |       |       |
@@ -360,10 +424,10 @@ Key descriptions:
 | PyBlood | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | CrtiVln | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 30: ADSI
+# Profile 31: ADSI
 
 
 |       |       |       |
@@ -375,7 +439,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 31: Python
+# Profile 32: Python
 
 
 |       |       |       |
@@ -387,19 +451,22 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 32: Dig
+# Profile 33: Dig
+
+Key descriptions:
+* Server: Use a specific dns server
 
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | &nbsp;&nbsp;dig&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;Types&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| Server | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 33: SMBClient
+# Profile 34: SMBClient
 
 
 |       |       |       |
@@ -411,7 +478,10 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 34: MSSQLCli
+# Profile 35: MSSQLCli
+
+Key descriptions:
+* SetVars: This profile requires the DP_USERNAME, DP_PASSWORD, DP_DOMAIN, DP_PORTS, and DP_HOSTS env variables be set. Go to the SetVars profile to set.
 
 
 |       |       |       |
@@ -420,10 +490,10 @@ Key descriptions:
 | $${\textsf{\color{#0423fb} &nbsp;Roles&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8040} &nbsp;Info&nbsp; }}$$ |
 | $${\textsf{\color{#f10edb} Linked }}$$ | $${\textsf{\color{#0080ff} QLinked }}$$ | Tables |
 | $${\textsf{\color{#fc0347} Version }}$$ | &nbsp;&nbsp;DBs&nbsp;&nbsp; | $${\textsf{\color{#00ff00} &nbsp;&nbsp;USE&nbsp;&nbsp; }}$$ |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+| $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 35: Responder
+# Profile 36: Responder
 
 
 |       |       |       |
@@ -435,7 +505,10 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 36: EvilWinRM
+# Profile 37: EvilWinRM
+
+Key descriptions:
+* SetVars: This profile requires the DP_USERNAME, DP_PASSWORD, and DP_DOMAIN env variables be set. Go to the SetVars profile to set.
 
 
 |       |       |       |
@@ -444,10 +517,13 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | $${\textsf{\color{#0080ff} &nbsp;&nbsp;DL&nbsp;&nbsp; }}$$ | $${\textsf{\color{#ff0080} &nbsp;&nbsp;UL&nbsp;&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 37: SMBMAP
+# Profile 38: SMBMAP
+
+Key descriptions:
+* SetVars: This profile requires the DP_USERNAME, DP_PASSWORD, DP_DOMAIN, and DP_HOSTS env variables be set. Go to the SetVars profile to set.
 
 
 |       |       |       |
@@ -456,18 +532,82 @@ Key descriptions:
 | Recurse | &nbsp;Grep&nbsp; | &nbsp;Find&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+| $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 38: SQLMap
+# Profile 39: SQLMap
 
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
-| &nbsp;Base&nbsp; | &nbsp;Host&nbsp; | &nbsp;dbms&nbsp; |
-| &nbsp;Data&nbsp; | &nbsp;&nbsp;DBs&nbsp;&nbsp; | Tables |
-| &nbsp;&nbsp;DB&nbsp;&nbsp; | &nbsp;Table&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;Dump&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#00ff00} &nbsp;Base&nbsp; }}$$ | &nbsp;Host&nbsp; | &nbsp;File&nbsp; |
+| &nbsp;dbms&nbsp; | &nbsp;&nbsp;DBs&nbsp;&nbsp; | Tables |
+| &nbsp;Data&nbsp; | &nbsp;&nbsp;DB&nbsp;&nbsp; | &nbsp;Table&nbsp; |
+| $${\textsf{\color{#80ffff} &nbsp;Dump&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+
+
+# Profile 40: getallurls
+
+Key descriptions:
+* Crawl: Fetch known URLs from AlienVault's Open Threat Exchange, the Wayback Machine, and Common Crawl.
+* FSCode: Ignore certain HTTP status codes
+* Proxy: Set proxy, Burp is default
+
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| &nbsp;Crawl&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;Out&nbsp;&nbsp; |
+| FSCode | Timeout | Threads |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;Proxy&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+
+
+# Profile 41: MySQL
+
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| Connect | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;DBs&nbsp;&nbsp; | Use DB | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| Tables | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+
+
+# Profile 42: Hashcat
+
+Key descriptions:
+* Detect: Use hashcat to detect hashing algorithm
+* Crack: Use hashcat to detect hashing algorithm
+* Show: Show cracked password from hashcat
+
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| Detect | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;Crack&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;Show&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+
+
+# Profile 43: VS
+
+Key descriptions:
+* Compile: Compile a .cs file
+
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| Compile | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+
+
+
 
 
