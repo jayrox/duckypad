@@ -1,6 +1,6 @@
 DEFAULTCHARDELAY 15
 
-REM DOC: Launch Squiddy
+REM DOC: Launch Squiddy, my personal pentest tracking and report generation tool
 
 WINDOWS r
 

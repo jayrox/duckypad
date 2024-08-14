@@ -1,5 +1,5 @@
 DEFAULTCHARDELAY 15
 
-REM DOC: Use hashcat to detect hashing algorithm
+REM DOC: Use hashcat to crack hashes in file
 
 STRING hashcat -m <hash #> <hash file> <wordlist> 

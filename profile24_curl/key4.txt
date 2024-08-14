@@ -1,5 +1,7 @@
 DEFAULTCHARDELAY 15
 
+REM DOC: curl include response headers in output, allow insecure connections and follow redirects. Pastes URL from clipboard
+
 STRING curl -ikL 
 CTRL SHIFT v
 ENTER
