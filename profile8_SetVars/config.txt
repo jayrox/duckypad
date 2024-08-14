@@ -1,6 +1,7 @@
 z1 Host(s)
 z2 Port(s)
 z4 Domain
+z5 DC IP
 z7 User
 z8 Pass
 z13 ECHO

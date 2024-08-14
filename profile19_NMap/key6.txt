@@ -1,0 +1,7 @@
+DEFAULTCHARDELAY 15
+
+STRINGLN for i in $(xsel -b)
+STRINGLN do
+STRINGLN   echo testing: $i
+STRINGLN   nmap -F -oX $i.json $i
+STRINGLN done

@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+STRING skipfish -o skipfish 
+CTRL SHIFT v

@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+STRING whoami /priv
+ENTER

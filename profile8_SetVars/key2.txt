@@ -1,2 +1,4 @@
+DEFAULTCHARDELAY 15
+
 STRING printf "Port: "; read DP_PORTS; printf "\n";
 ENTER

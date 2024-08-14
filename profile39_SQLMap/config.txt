@@ -1,0 +1,17 @@
+z1 Base
+z2 Host
+z3 File
+z4 dbms
+z5 DBs
+z6 Tables
+z7 Data
+z8 DB
+z9 Table
+z10 Dump
+z14 Home
+z15 Help
+BG_COLOR 84 22 180
+SWCOLOR_1 0 255 0
+SWCOLOR_10 128 255 255
+SWCOLOR_14 255 128 0
+SWCOLOR_15 255 255 0

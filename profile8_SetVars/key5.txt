@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+STRING printf "AD DC IP: "; read DP_DC_IP; printf "\n"; 
+ENTER

@@ -1,0 +1,37 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Updates the HTB VPN to NOT be the default/main connection. Thus fixing the issue where external resources are unable to load.
+
+LOOP0:
+STRINGLN # Enter your HTB VPN name as saved in your network connection manager.
+STRINGLN # Once entered, press this key again to execute the fix.
+
+STRINGLN # Available connections:
+
+STRING nmcli connection show
+ENTER
+
+STRING printf "Enter HTB VPN Name: "; read DP_HTB_VPN;
+ENTER
+
+LOOP1:
+STRINGLN # Updating connection.
+
+STRING nmcli connection edit  
+CTRL SHIFT v
+ENTER
+
+DELAY 200
+
+STRING set ipv4.never-default true
+ENTER
+
+DELAY 100
+
+STRING set ipv6.never-default true
+ENTER
+
+DELAY 100
+
+STRING save
+ENTER

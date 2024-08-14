@@ -1,0 +1,5 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Ignore certain HTTP status codes
+
+STRING --fc 404,302 

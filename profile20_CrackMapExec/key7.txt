@@ -1,0 +1,3 @@
+DEFAULTCHARDELAY 15
+
+STRING unbuffer crackmapexec winrm $DP_HOSTS -u=$DP_USERNAME -p=$DP_PASSWORD -x "whoami" | sed -u 's/'"$DP_PASSWORD"'/[REDACTED]/gi' 

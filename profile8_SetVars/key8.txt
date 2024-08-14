@@ -1,2 +1,4 @@
-STRING stty -echo; printf "Password: "; read AD_PASSWORD; stty echo; printf "\n";
+DEFAULTCHARDELAY 15
+
+STRING stty -echo; printf "Password: "; read DP_PASSWORD; stty echo; printf "\n";
 ENTER

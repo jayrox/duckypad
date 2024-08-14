@@ -1,0 +1,6 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Get Mail folders
+
+STRING ls -la /var/mail/
+ENTER

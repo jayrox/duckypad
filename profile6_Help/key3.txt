@@ -1,0 +1,11 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Launches Firefox to https://lolbas-project.github.io/
+
+WINDOWS r
+
+DELAY 200
+
+STRING firefox https://lolbas-project.github.io/
+
+ENTER

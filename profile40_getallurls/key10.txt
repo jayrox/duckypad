@@ -1,0 +1,5 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Set proxy, Burp is default
+
+STRING --proxy http://127.0.0.1:8080 

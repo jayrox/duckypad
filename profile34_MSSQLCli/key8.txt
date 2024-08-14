@@ -1,4 +1,0 @@
-STRING Exec ('select system_user;') at [
-CTRL SHIFT v
-STRING ];
-ENTER

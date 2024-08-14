@@ -1,4 +1,9 @@
+DEFAULTCHARDELAY 15
+
 WINDOWS r
+
 DELAY 600
+
 STRING firefox.exe  "https://explainshell.com/explain?cmd="
+
 ENTER

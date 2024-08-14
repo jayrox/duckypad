@@ -1,0 +1,7 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Fetch known URLs from AlienVault's Open Threat Exchange, the Wayback Machine, and Common Crawl.
+
+STRING gau 
+CTRL SHIFT v
+STRING  

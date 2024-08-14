@@ -1,0 +1,7 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Use hashcat to detect hashing algorithm
+
+STRING hashcat 
+CTRL SHIFT v
+ENTER

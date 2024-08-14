@@ -1,9 +1,0 @@
-z1 Base
-z4 Recurse
-z5 Grep
-z6 Find
-z14 Home
-z15 Help
-BG_COLOR 84 22 180
-SWCOLOR_14 255 128 0
-SWCOLOR_15 255 255 0

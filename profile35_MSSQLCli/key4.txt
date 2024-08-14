@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+STRING exec sp_helpsrvrolemember 'sysadmin';
+ENTER

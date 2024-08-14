@@ -1,0 +1,9 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Runs TestSSL against hosts in the clipboard. One host per line, saves output as JSON
+
+STRINGLN for i in $(xsel -b)
+STRINGLN do
+STRINGLN   echo testing: $i
+STRINGLN   testssl -oj $i.json $i
+STRINGLN done

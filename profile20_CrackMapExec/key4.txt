@@ -1,0 +1,12 @@
+DEFAULTCHARDELAY 15
+
+LOOP0:
+STRING # This script requires multiple inputs
+ENTER
+STRING # Go to the SetVars profile to set them
+ENTER
+STRING # Press this key again to run
+ENTER
+
+LOOP1:
+STRING unbuffer crackmapexec smb $DP_HOSTS --shares -u=$DP_USERNAME -p=$DP_PASSWORD -d=$DP_DOMAIN | sed -u 's/'"$DP_PASSWORD"'/[REDACTED]/gi' 

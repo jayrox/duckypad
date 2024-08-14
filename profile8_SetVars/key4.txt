@@ -1,2 +1,4 @@
-STRING printf "AD Domain: "; read AD_DOMAIN; printf "\n";
+DEFAULTCHARDELAY 15
+
+STRING printf "AD Domain: "; read DP_DOMAIN; printf "\n";
 ENTER

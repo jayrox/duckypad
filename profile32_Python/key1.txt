@@ -1,0 +1,8 @@
+DEFAULTCHARDELAY 15
+
+STRING virtualenv venv
+ENTER
+STRING source venv/bin/activate
+ENTER
+STRING pip3 install -r requirements.txt
+ENTER

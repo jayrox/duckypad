@@ -1,0 +1,5 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Compile a .cs file
+
+STRING C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /t:exe /out:<name>.exe <name>.cs

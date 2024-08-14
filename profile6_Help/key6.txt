@@ -1,0 +1,11 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Launches Firefox to https://github.com/swisskyrepo/PayloadsAllTheThings
+
+WINDOWS r
+
+DELAY 200
+
+STRING firefox https://github.com/swisskyrepo/PayloadsAllTheThings
+
+ENTER

@@ -1,1 +1,3 @@
+REM DOC: GoBuster
+
 GOTO_PROFILE_NAME GoBuster

@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+STRING sudo responder -I tun0
+ENTER

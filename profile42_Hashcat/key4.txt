@@ -1,0 +1,5 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Use hashcat to detect hashing algorithm
+
+STRING hashcat -m <hash #> <hash file> <wordlist> 

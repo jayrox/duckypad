@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+STRING select name,is_rpc_out_enabled from sys.servers
+ENTER

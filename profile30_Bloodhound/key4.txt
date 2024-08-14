@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+STRING bloodhound-python -d $DP_DOMAIN -c all -u $DP_USERNAME -p $DP_PASSWORD
+ENTER

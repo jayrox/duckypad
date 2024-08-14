@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+STRING impacket-mssqlclient 
+CTRL SHIFT v

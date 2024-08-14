@@ -1,0 +1,3 @@
+REM DOC: This profile requires the DP_USERNAME, DP_PASSWORD, DP_DOMAIN, DP_PORTS, and DP_HOSTS env variables be set. Go to the SetVars profile to set.
+
+GOTO_PROFILE_NAME SetVars

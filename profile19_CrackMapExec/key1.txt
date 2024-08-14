@@ -1,3 +1,0 @@
-DEFAULTCHARDELAY 15
-STRING crackmapexec smb smb_hosts --shares
-ENTER

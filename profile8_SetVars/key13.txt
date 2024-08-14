@@ -1,13 +1,18 @@
 DEFAULTCHARDELAY 15
 
-STRING echo $AD_DOMAIN
-ENTER
-
-STRING echo $AD_USERNAME
-ENTER
+REM DOC: Print out env variables used in the various scripts.
 
 STRING echo $DP_HOSTS
 ENTER
 
 STRING echo $DP_PORTS
+ENTER
+
+STRING echo $DP_DOMAIN
+ENTER
+
+STRING echo $DP_DC_IP
+ENTER
+
+STRING echo $DP_USERNAME
 ENTER

@@ -1,0 +1,5 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Show cracked password from hashcat
+
+STRING  --show

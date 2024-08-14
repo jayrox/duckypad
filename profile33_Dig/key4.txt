@@ -1,0 +1,3 @@
+REM DOC: Use a specific dns server
+
+STRING @<dns server> 

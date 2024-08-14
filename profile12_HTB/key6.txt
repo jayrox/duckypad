@@ -1,4 +1,6 @@
 DEFAULTCHARDELAY 15
 
-STRING python -c 'import pty;pty.spawn("/bin/bash")'
+REM DOC: Get running processes
+
+STRING ps aux
 ENTER

@@ -1,0 +1,6 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Creates a prompt for an IP and Host name, then adds them to the /etc/hosts file
+
+STRING printf "IP: "; read DP_IP; printf "Host: "; read DP_HOST; echo $DP_IP'    '$DP_HOST | sudo tee -a /etc/hosts
+ENTER

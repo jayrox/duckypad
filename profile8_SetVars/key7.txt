@@ -1,2 +1,4 @@
-STRING printf "AD Username: "; read AD_USERNAME; printf "\n"; 
+DEFAULTCHARDELAY 15
+
+STRING printf "AD Username: "; read DP_USERNAME; printf "\n"; 
 ENTER

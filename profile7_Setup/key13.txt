@@ -1,0 +1,3 @@
+REM DOC: Go to the SetVars profile.
+
+GOTO_PROFILE_NAME SetVars

@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+STRING ls -a /usr/share/nmap/scripts
+ENTER

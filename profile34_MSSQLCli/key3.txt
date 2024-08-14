@@ -1,9 +1,0 @@
-DEFAULTCHARDELAY 15
-
-LOOP0:
-STRING printf "Host(s): "; read cme_hosts; printf "Port: "; read cme_port; printf "\n"; printf "\n"; printf "AD Domain: "; read AD_DOMAIN; printf "\n"; printf "AD Username: "; read AD_USERNAME; printf "\n"; stty -echo; printf "Password: "; read AD_PASSWORD; stty echo; printf "\n";
-ENTER
-
-LOOP1:
-STRING impacket-mssqlclient -port $cme_port -windows-auth $AD_DOMAIN/$AD_USERNAME:$AD_PASSWORD@$cme_hosts
-ENTER

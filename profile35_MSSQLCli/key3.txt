@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+STRING impacket-mssqlclient -port $DP_PORTS -windows-auth $DP_DOMAIN/$DP_USERNAME:$DP_PASSWORD@$DP_HOSTS
+ENTER

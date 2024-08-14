@@ -1,1 +1,3 @@
+REM DOC: nmap
+
 GOTO_PROFILE_NAME NMap

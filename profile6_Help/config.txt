@@ -1,5 +1,9 @@
 z1 Explain
+z2 WADComs
+z3 LOLBAS
 z4 tldr
+z5 GTFOBin
+z6 Payload
 z7 Kali
 z14 Home
 BG_COLOR 84 22 180

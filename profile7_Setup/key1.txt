@@ -1,5 +1,11 @@
 DEFAULTCHARDELAY 15
 
-STRING echo "alias ptun='printf \"Username: \"; read AD_USERNAME; '" >> ~/.bashrc
+REM DOC: Adds a few aliases to the .bashrc file to help set env variables that can be used in other profiles
 
-STRING echo "alias ptdm='printf \"Domain: \"; read AD_DOMAIN; '" >> ~/.bashrc
+STRING echo "alias dpun='printf \"Username: \"; read DP_USERNAME; '" >> ~/.bashrc
+
+STRING echo "alias dpdm='printf \"Domain: \"; read DP_DOMAIN; '" >> ~/.bashrc
+
+STRING echo "alias dph='printf \"Host(s): \"; read DP_HOSTS; '" >> ~/.bashrc
+
+STRING echo "alias dpp='printf \"Port: \"; read DP_PORTS; '" >> ~/.bashrc
