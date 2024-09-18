@@ -1,0 +1,6 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Show any cracked passwords
+
+STRING john --show id_rsa.john
+ENTER

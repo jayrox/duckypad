@@ -1,0 +1,8 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Update the path for rockyou.txt, may need to extract from tar.gz
+REM DOC: locate rockyou.txt
+REM DOC: tar -xvf <full path to rockyou.txt.tar.gz>
+
+STRING john --wordlist=/home/kali/htb/poo/kerb/rockyou.txt id_rsa.john
+ENTER

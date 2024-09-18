@@ -1,3 +1,3 @@
-REM DOC: Testssl
+REM DOC: Testssl - Testing TLS/SSL encryption anywhere on any port - https://github.com/drwetter/testssl.sh
 
 GOTO_PROFILE_NAME TestSSL

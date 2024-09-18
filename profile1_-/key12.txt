@@ -1,3 +1,3 @@
-REM DOC: SkipFish
+REM DOC: NetExec - https://github.com/Pennyw0rth/NetExec
 
-GOTO_PROFILE_NAME Skipfish
+GOTO_PROFILE_NAME NetExec

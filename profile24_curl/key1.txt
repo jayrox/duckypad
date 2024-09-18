@@ -1,5 +1,5 @@
 DEFAULTCHARDELAY 15
 
-REM DOC: curl include response headers in output, allow insecure connections and follow redirects
+REM DOC: Include response headers in output, allow insecure connections and follow redirects
 
 STRING curl -ikL 

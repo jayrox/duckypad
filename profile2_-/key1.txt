@@ -1,1 +1,3 @@
-GOTO_PROFILE_NAME WFuzz
+REM DOC: SkipFish
+
+GOTO_PROFILE_NAME Skipfish

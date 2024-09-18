@@ -1,1 +1,3 @@
-GOTO_PROFILE_NAME NetExec
+REM DOC: CrackMapExec
+
+GOTO_PROFILE_NAME CrackMapExec

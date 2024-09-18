@@ -1,0 +1,7 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Find the path for SSH2John: locate ssh2john
+REM DOC: Python script: https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/ssh2john.py
+
+STRING ssh2john id_rsa > id_rsa.john
+ENTER

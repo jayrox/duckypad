@@ -1,0 +1,3 @@
+REM DOC: Little automation to run the CalcyIV/PokeGenie scanners
+
+GOTO_PROFILE_NAME PokemonGo

