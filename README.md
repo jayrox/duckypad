@@ -7,19 +7,19 @@ the following previews were generated using this script: https://github.com/jayr
 i am starting to add some documentation to the keys using a comment format of `REM DOC: ` in the individual keys that will be parsed out by the generator code.
 
 
+
 # Profile 1: -
 
 Key descriptions:
 * Windows: Windows based commands
 * NumPad: NumPad
 * Help: Helpful websites
-* HTB: Hacktheboxisms
+* HTB: Hacktheboxisms - http://app.hackthebox.eu/
+* TestSSL: Testssl - Testing TLS/SSL encryption anywhere on any port - https://github.com/drwetter/testssl.sh
+* NMap: nmap - the Network Mapper. - https://github.com/nmap/nmap
 * PS: PowerShell
-* TestSSL: Testssl
-* NMap: nmap
-* CME: CrackMapExec
 * Witness: Witness Me
-* Skpfish: SkipFish
+* NetExec: NetExec - https://github.com/Pennyw0rth/NetExec
 * curl: cURL
 * Nikto: Nikto
 * GoBustr: GoBuster
@@ -28,34 +28,42 @@ Key descriptions:
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | $${\textsf{\color{#00ffff} Windows }}$$ | $${\textsf{\color{#80ff00} NumPad }}$$ | &nbsp;Help&nbsp; |
-| $${\textsf{\color{#0080ff} Squiddy }}$$ | Ansible | $${\textsf{\color{#00ff00} &nbsp;&nbsp;HTB&nbsp;&nbsp; }}$$ |
-| $${\textsf{\color{#80ffff} &nbsp;&nbsp;PS&nbsp;&nbsp; }}$$ | $${\textsf{\color{#c993ff} TestSSL }}$$ | $${\textsf{\color{#0f0fff} &nbsp;NMap&nbsp; }}$$ |
-| $${\textsf{\color{#ffff00} &nbsp;&nbsp;CME&nbsp;&nbsp; }}$$ | $${\textsf{\color{#ffff00} Witness }}$$ | $${\textsf{\color{#ff0d86} Skpfish }}$$ |
+| $${\textsf{\color{#0080ff} Squiddy }}$$ | &nbsp;----&nbsp; | $${\textsf{\color{#ff0d86} SetVars }}$$ |
+| $${\textsf{\color{#00ff00} &nbsp;&nbsp;HTB&nbsp;&nbsp; }}$$ | $${\textsf{\color{#c993ff} TestSSL }}$$ | $${\textsf{\color{#0f0fff} &nbsp;NMap&nbsp; }}$$ |
+| $${\textsf{\color{#80ffff} &nbsp;&nbsp;PS&nbsp;&nbsp; }}$$ | $${\textsf{\color{#ffff00} Witness }}$$ | $${\textsf{\color{#ffff00} NetExec }}$$ |
 | &nbsp;curl&nbsp; | $${\textsf{\color{#c0c0c0} &nbsp;Nikto&nbsp; }}$$ | $${\textsf{\color{#ff8040} GoBustr }}$$ |
 
 
 # Profile 2: -
 
+Key descriptions:
+* Skpfish: SkipFish
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
-| $${\textsf{\color{#ff0080} &nbsp;WFuzz&nbsp; }}$$ | $${\textsf{\color{#0080c0} &nbsp;ffuf&nbsp; }}$$ | $${\textsf{\color{#46c2ff} OpenSSL }}$$ |
+| $${\textsf{\color{#ff0d86} Skpfish }}$$ | $${\textsf{\color{#0080c0} &nbsp;ffuf&nbsp; }}$$ | $${\textsf{\color{#46c2ff} OpenSSL }}$$ |
 | $${\textsf{\color{#ff8484} Bludhnd }}$$ | &nbsp;ADSI&nbsp; | $${\textsf{\color{#ee82ee} OneLine }}$$ |
 | $${\textsf{\color{#00ff00} Python }}$$ | $${\textsf{\color{#00ffff} &nbsp;&nbsp;Dig&nbsp;&nbsp; }}$$ | $${\textsf{\color{#ff8000} SMBCli }}$$ |
 | $${\textsf{\color{#8080ff} &nbsp;MSSQL&nbsp; }}$$ | Respond | $${\textsf{\color{#800040} EvilWin }}$$ |
-| $${\textsf{\color{#80ffff} SMBMAP }}$$ | $${\textsf{\color{#8af493} SQLMap }}$$ | $${\textsf{\color{#ff80ff} SetVars }}$$ |
+| $${\textsf{\color{#80ffff} SMBMAP }}$$ | $${\textsf{\color{#8af493} SQLMap }}$$ | $${\textsf{\color{#ff0080} &nbsp;WFuzz&nbsp; }}$$ |
 
 
 # Profile 3: -
 
+Key descriptions:
+* CME: CrackMapExec
+* John: Password cracker John
+* PGo: Little automation to run the CalcyIV/PokeGenie scanners
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
-| NetExec | $${\textsf{\color{#00ff40} &nbsp;&nbsp;GAU&nbsp;&nbsp; }}$$ | $${\textsf{\color{#ff8040} &nbsp;MySQL&nbsp; }}$$ |
-| $${\textsf{\color{#00ff00} Hashcat }}$$ | &nbsp;&nbsp;VS&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#ffff00} &nbsp;&nbsp;CME&nbsp;&nbsp; }}$$ | $${\textsf{\color{#00ff40} &nbsp;&nbsp;GAU&nbsp;&nbsp; }}$$ | $${\textsf{\color{#ff8040} &nbsp;MySQL&nbsp; }}$$ |
+| $${\textsf{\color{#00ff00} Hashcat }}$$ | &nbsp;&nbsp;VS&nbsp;&nbsp; | $${\textsf{\color{#00ff00} &nbsp;John&nbsp; }}$$ |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| Ansible | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#8000ff} &nbsp;&nbsp;PGo&nbsp;&nbsp; }}$$ |
 
 
 # Profile 4: Windows
@@ -128,7 +136,7 @@ Key descriptions:
 | Host(s) | Port(s) | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | Domain | &nbsp;DC IP&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;User&nbsp; | &nbsp;Pass&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#80ffff} &nbsp;LHOST&nbsp; }}$$ | $${\textsf{\color{#80ffff} &nbsp;LPORT&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | $${\textsf{\color{#80ff00} &nbsp;ECHO&nbsp; }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
@@ -187,7 +195,7 @@ Key descriptions:
 | :----------: | :----------: | :----------: |
 | Sudo-l | FndRoot | ls -la |
 | GetCap | AppArmo | &nbsp;Procs&nbsp; |
-| ------- | Upgrade | ------- |
+| ------- | $${\textsf{\color{#00ff00} Upgrade }}$$ | ------- |
 | &nbsp;Hosts&nbsp; | NC 4444 | &nbsp;Srv80&nbsp; |
 | $${\textsf{\color{#80ffff} Page 2 }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#80ffff} Windows }}$$ |
 
@@ -197,13 +205,15 @@ Key descriptions:
 Key descriptions:
 * +Hosts: Creates a prompt for an IP and Host name, then adds them to the /etc/hosts file
 * GetMail: Get Mail folders
+* BashRev: Uses LHOST and LPORT from the SetVars profile
+* BashRev: More info: https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/
 * FixVPN: Updates the HTB VPN to NOT be the default/main connection. Thus fixing the issue where external resources are unable to load.
 
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | $${\textsf{\color{#ee82ee} +Hosts }}$$ | &nbsp;Py2SH&nbsp; | &nbsp;Py3SH&nbsp; |
-| GetMail | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| GetMail | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#00ff00} BashRev }}$$ |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | FixVPN | $${\textsf{\color{#ff0000} DelRout }}$$ |
 | $${\textsf{\color{#80ffff} Page 1 }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#80ffff} Windows }}$$ |
@@ -612,3 +622,36 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
+# Profile 44: John
+
+Key descriptions:
+* Crack: Update the path for rockyou.txt, may need to extract from tar.gz
+* Crack: locate rockyou.txt
+* Crack: tar -xvf <full path to rockyou.txt.tar.gz>
+* Show: Show any cracked passwords
+* SSH2Joh: Find the path for SSH2John: locate ssh2john
+* SSH2Joh: Python script: https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/ssh2john.py
+
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| $${\textsf{\color{#00ff00} &nbsp;Crack&nbsp; }}$$ | &nbsp;Show&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#00ffff} SSH2Joh }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+
+
+# Profile 45: PokemonGo
+
+Key descriptions:
+* Scan: Does not currently work
+
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| &nbsp;Scan&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
