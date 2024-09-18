@@ -627,7 +627,7 @@ Key descriptions:
 Key descriptions:
 * Crack: Update the path for rockyou.txt, may need to extract from tar.gz
 * Crack: locate rockyou.txt
-* Crack: tar -xvf <full path to rockyou.txt.tar.gz>
+* Crack: tar -xvf /full/path/to/rockyou.txt.tar.gz
 * Show: Show any cracked passwords
 * SSH2Joh: Find the path for SSH2John: locate ssh2john
 * SSH2Joh: Python script: https://raw.githubusercontent.com/magnumripper/JohnTheRipper/bleeding-jumbo/run/ssh2john.py
