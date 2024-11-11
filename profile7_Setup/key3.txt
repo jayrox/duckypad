@@ -1,0 +1,11 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Adds a few aliases to the ~/.config/fish/config.fish file to help set env variables that can be used in other profiles
+
+STRING echo "alias dpun='read \"?Username: \" DP_USERNAME; '" >> ~/.config/fish/config.fish
+
+STRING echo "alias dpdm='read \"?Domain: \" DP_DOMAIN; '" >> ~/.config/fish/config.fish
+
+STRING echo "alias dph='read \"?Host(s): \" DP_HOSTS; '" >> ~/.config/fish/config.fish
+
+STRING echo "alias dpp='read \"?Port: \" DP_PORTS; '" >> ~/.config/fish/config.fish

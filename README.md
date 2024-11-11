@@ -14,12 +14,13 @@ Key descriptions:
 * Windows: Windows based commands
 * NumPad: NumPad
 * Help: Helpful websites
+* SetVars: Env variables used in the various scripts.
 * HTB: Hacktheboxisms - http://app.hackthebox.eu/
-* TestSSL: Testssl - Testing TLS/SSL encryption anywhere on any port - https://github.com/drwetter/testssl.sh
-* NMap: nmap - the Network Mapper. - https://github.com/nmap/nmap
+* TestSSL: Testing TLS/SSL encryption anywhere on any port - https://github.com/drwetter/testssl.sh
+* NMap: the Network Mapper. - https://github.com/nmap/nmap
 * PS: PowerShell
 * Witness: Witness Me
-* NetExec: NetExec - https://github.com/Pennyw0rth/NetExec
+* NetExec: https://github.com/Pennyw0rth/NetExec
 * curl: cURL
 * Nikto: Nikto
 * GoBustr: GoBuster
@@ -61,7 +62,7 @@ Key descriptions:
 | :----------: | :----------: | :----------: |
 | $${\textsf{\color{#ffff00} &nbsp;&nbsp;CME&nbsp;&nbsp; }}$$ | $${\textsf{\color{#00ff40} &nbsp;&nbsp;GAU&nbsp;&nbsp; }}$$ | $${\textsf{\color{#ff8040} &nbsp;MySQL&nbsp; }}$$ |
 | $${\textsf{\color{#00ff00} Hashcat }}$$ | &nbsp;&nbsp;VS&nbsp;&nbsp; | $${\textsf{\color{#00ff00} &nbsp;John&nbsp; }}$$ |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| Waymore | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | Ansible | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#8000ff} &nbsp;&nbsp;PGo&nbsp;&nbsp; }}$$ |
 
@@ -113,12 +114,13 @@ Key descriptions:
 Key descriptions:
 * Bash: Adds a few aliases to the .bashrc file to help set env variables that can be used in other profiles
 * ZSH: Adds a few aliases to the .zshrc file to help set env variables that can be used in other profiles
+* Fish: Adds a few aliases to the ~/.config/fish/config.fish file to help set env variables that can be used in other profiles
 * SetVars: Go to the SetVars profile.
 
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
-| &nbsp;Bash&nbsp; | &nbsp;&nbsp;ZSH&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#ffff00} &nbsp;Bash&nbsp; }}$$ | $${\textsf{\color{#80ff00} &nbsp;&nbsp;ZSH&nbsp;&nbsp; }}$$ | $${\textsf{\color{#80ffff} &nbsp;Fish&nbsp; }}$$ |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
@@ -221,6 +223,10 @@ Key descriptions:
 
 # Profile 14: Win
 
+Key descriptions:
+* Whoami: Get Windows user's privs
+* Whoami: https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
@@ -228,7 +234,7 @@ Key descriptions:
 | $${\textsf{\color{#80ffff} Certify }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;Dir A&nbsp; | &nbsp;&nbsp;Set&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| $${\textsf{\color{#80ffff} &nbsp;Linux&nbsp; }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#80ffff} &nbsp;Linux&nbsp; }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
 # Profile 15: PowerShell
@@ -316,12 +322,20 @@ Key descriptions:
 
 # Profile 21: NetExec
 
+Key descriptions:
+* RIDBrut: Enumerate usernames
+* Shares: Enumerate SMB shares.
+* Users: Enumerate SMB shares.
+* Spider: Enumerate SMB shares.
+* Basic: Test connection
+* Help: Try username as blank, 'anonymous', 'guest', or pass a file of users
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
-| ZeroLog | PetitPo | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| ZeroLog | $${\textsf{\color{#808080} PetitPo }}$$ | $${\textsf{\color{#ff0080} RIDBrut }}$$ |
+| $${\textsf{\color{#00ff00} Shares }}$$ | $${\textsf{\color{#0080ff} &nbsp;Users&nbsp; }}$$ | $${\textsf{\color{#ff80ff} Spider }}$$ |
+| &nbsp;Basic&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
@@ -404,11 +418,15 @@ Key descriptions:
 
 # Profile 28: ffuf
 
+Key descriptions:
+* Size: Filter on size
+* Words: Filter on words
+
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | &nbsp;&nbsp;Dir&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| Sub DNS | &nbsp;Size&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| Sub DNS | &nbsp;Size&nbsp; | $${\textsf{\color{#00ffff} &nbsp;Words&nbsp; }}$$ |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
@@ -480,30 +498,33 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 
 
-# Profile 34: SMBClient
+# Profile 34: SMBMAP
+
+Key descriptions:
+* SetVars: This profile requires the DP_USERNAME, DP_PASSWORD, DP_DOMAIN, and DP_HOSTS env variables be set. Go to the SetVars profile to set.
+
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| &nbsp;Base&nbsp; | $${\textsf{\color{#ff0080} &nbsp;Anon&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| Recurse | &nbsp;Grep&nbsp; | &nbsp;Find&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+
+
+# Profile 35: SMBClient
+
+Key descriptions:
+* Get: Get individual file
 
 
 |       |       |       |
 | :----------: | :----------: | :----------: |
 | Connect | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#80ffff} &nbsp;NoPW&nbsp; }}$$ |
 | $${\textsf{\color{#0ff06f} &nbsp;&nbsp;LS&nbsp;&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ee82ee} Get All }}$$ |
+| $${\textsf{\color{#ff0080} &nbsp;&nbsp;Get&nbsp;&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ee82ee} Get All }}$$ |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
-
-
-# Profile 35: MSSQLCli
-
-Key descriptions:
-* SetVars: This profile requires the DP_USERNAME, DP_PASSWORD, DP_DOMAIN, DP_PORTS, and DP_HOSTS env variables be set. Go to the SetVars profile to set.
-
-
-|       |       |       |
-| :----------: | :----------: | :----------: |
-| $${\textsf{\color{#00ff00} Connect }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | ConVars |
-| $${\textsf{\color{#0423fb} &nbsp;Roles&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8040} &nbsp;Info&nbsp; }}$$ |
-| $${\textsf{\color{#f10edb} Linked }}$$ | $${\textsf{\color{#0080ff} QLinked }}$$ | Tables |
-| $${\textsf{\color{#fc0347} Version }}$$ | &nbsp;&nbsp;DBs&nbsp;&nbsp; | $${\textsf{\color{#00ff00} &nbsp;&nbsp;USE&nbsp;&nbsp; }}$$ |
 | $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
@@ -516,7 +537,7 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
 # Profile 37: EvilWinRM
@@ -534,34 +555,7 @@ Key descriptions:
 | $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 38: SMBMAP
-
-Key descriptions:
-* SetVars: This profile requires the DP_USERNAME, DP_PASSWORD, DP_DOMAIN, and DP_HOSTS env variables be set. Go to the SetVars profile to set.
-
-
-|       |       |       |
-| :----------: | :----------: | :----------: |
-| &nbsp;Base&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| Recurse | &nbsp;Grep&nbsp; | &nbsp;Find&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
-
-
-# Profile 39: SQLMap
-
-
-|       |       |       |
-| :----------: | :----------: | :----------: |
-| $${\textsf{\color{#00ff00} &nbsp;Base&nbsp; }}$$ | &nbsp;Host&nbsp; | &nbsp;File&nbsp; |
-| &nbsp;dbms&nbsp; | &nbsp;&nbsp;DBs&nbsp;&nbsp; | Tables |
-| &nbsp;Data&nbsp; | &nbsp;&nbsp;DB&nbsp;&nbsp; | &nbsp;Table&nbsp; |
-| $${\textsf{\color{#80ffff} &nbsp;Dump&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
-| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
-
-
-# Profile 40: getallurls
+# Profile 38: getallurls
 
 Key descriptions:
 * Crawl: Fetch known URLs from AlienVault's Open Threat Exchange, the Wayback Machine, and Common Crawl.
@@ -575,6 +569,33 @@ Key descriptions:
 | FSCode | Timeout | Threads |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;Proxy&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+
+
+# Profile 39: MSSQLCli
+
+Key descriptions:
+* SetVars: This profile requires the DP_USERNAME, DP_PASSWORD, DP_DOMAIN, DP_PORTS, and DP_HOSTS env variables be set. Go to the SetVars profile to set.
+
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| $${\textsf{\color{#00ff00} Connect }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | ConVars |
+| $${\textsf{\color{#0423fb} &nbsp;Roles&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8040} &nbsp;Info&nbsp; }}$$ |
+| $${\textsf{\color{#f10edb} Linked }}$$ | $${\textsf{\color{#0080ff} QLinked }}$$ | Tables |
+| $${\textsf{\color{#fc0347} Version }}$$ | &nbsp;&nbsp;DBs&nbsp;&nbsp; | $${\textsf{\color{#00ff00} &nbsp;&nbsp;USE&nbsp;&nbsp; }}$$ |
+| $${\textsf{\color{#ff0000} SetVars }}$$ | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+
+
+# Profile 40: SQLMap
+
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| $${\textsf{\color{#00ff00} &nbsp;Base&nbsp; }}$$ | &nbsp;Host&nbsp; | &nbsp;File&nbsp; |
+| &nbsp;dbms&nbsp; | &nbsp;&nbsp;DBs&nbsp;&nbsp; | Tables |
+| &nbsp;Data&nbsp; | &nbsp;&nbsp;DB&nbsp;&nbsp; | &nbsp;Table&nbsp; |
+| $${\textsf{\color{#80ffff} &nbsp;Dump&nbsp; }}$$ | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
@@ -642,7 +663,19 @@ Key descriptions:
 | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
 
 
-# Profile 45: PokemonGo
+# Profile 45: Waymore
+
+
+|       |       |       |
+| :----------: | :----------: | :----------: |
+| URLs +v | $${\textsf{\color{#00ff40} Resp +v }}$$ | $${\textsf{\color{#ff0080} Both +v }}$$ |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; |
+| &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp; | $${\textsf{\color{#ff8000} &nbsp;Home&nbsp; }}$$ | $${\textsf{\color{#ffff00} &nbsp;Help&nbsp; }}$$ |
+
+
+# Profile 46: PokemonGo
 
 Key descriptions:
 * Scan: Does not currently work

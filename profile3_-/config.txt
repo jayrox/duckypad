@@ -4,6 +4,7 @@ z3 MySQL
 z4 Hashcat
 z5 VS
 z6 John
+z7 Waymore
 z13 Ansible
 z15 PGo
 BG_COLOR 84 22 180

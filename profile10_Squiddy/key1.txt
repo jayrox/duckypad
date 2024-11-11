@@ -4,5 +4,5 @@ REM DOC: Launch Squiddy, my personal pentest tracking and report generation tool
 
 WINDOWS r
 
-STRING cmd /c cd \eli\dev\BK_Tools\Squiddy && cls && python gui.py
+STRING cmd /c cd \dev\migrate\eli\dev\BK_Tools\Squiddy && cls && python gui.py
 ENTER

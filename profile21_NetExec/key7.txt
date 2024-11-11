@@ -1,7 +1,9 @@
 DEFAULTCHARDELAY 15
 
+REM DOC: Test connection
+
 STRING nxc smb 
 
 CTRL SHIFT v
 
-STRING  -u '' -p '' -M zerologon
+STRING  -u '' -p ''

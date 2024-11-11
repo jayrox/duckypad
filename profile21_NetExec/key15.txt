@@ -1,1 +1,3 @@
+REM DOC: Try username as blank, 'anonymous', 'guest', or pass a file of users
+
 STRING https://www.netexec.wiki/

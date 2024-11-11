@@ -1,0 +1,9 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Enumerate usernames
+
+STRING nxc smb 
+
+CTRL SHIFT v
+
+STRING  -u '' -p '' --rid-brute

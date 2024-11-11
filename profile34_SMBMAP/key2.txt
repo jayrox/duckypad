@@ -1,0 +1,4 @@
+DEFAULTCHARDELAY 15
+
+STRING smbmap -H $DP_HOSTS  -u 'anonymous'
+ENTER

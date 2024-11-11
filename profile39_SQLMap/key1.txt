@@ -1,3 +1,0 @@
-DEFAULTCHARDELAY 15
-
-STRING sqlmap --level 5 --risk 3 --batch --dbs --threads 10 

@@ -1,11 +1,10 @@
-z1 Base
-z4 Recurse
-z5 Grep
-z6 Find
-z13 SetVars
+z1 URLs +v
+z2 Resp +v
+z3 Both +v
 z14 Home
 z15 Help
 BG_COLOR 84 22 180
-SWCOLOR_13 255 0 0
+SWCOLOR_2 0 255 64
+SWCOLOR_3 255 0 128
 SWCOLOR_14 255 128 0
 SWCOLOR_15 255 255 0

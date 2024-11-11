@@ -1,0 +1,9 @@
+DEFAULTCHARDELAY 15
+
+STRING waymore -i 
+
+CTRL SHIFT v
+
+STRING  -mode R -oU waymore.txt
+
+ENTER

