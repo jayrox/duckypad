@@ -1,6 +1,8 @@
 i am a pentester and these are my profiles. i use them constantly and am constantly adding and updating them.
 +v indicates its pasting from your clipboard, useful for pasting in a hostname for nmap or testssl. im not entirely consistant with the naming.
 
+if you are unsure of what a duckypad is or would like to buy one (non-affiliated):
+https://www.tindie.com/products/dekunukem/duckypad-do-it-all-mechanical-macropad/
 
 the following previews were generated using this script: https://github.com/jayrox/duckypad_profile_preview_gen
 
